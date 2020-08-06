@@ -1,0 +1,20 @@
+<h1>Sign IN</h1>
+
+<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+    <div >
+        <label for="email">Use name</label>
+        <input type="email" placeholder="E mail" formControlName="email">
+        <small style="color: red;" *ngIf="emailErro">Email is invalid !</small>
+    </div>
+<br>
+    <div>
+        <label for="password">password</label>
+        <input type="password" placeholder="password" formControlName="password">
+        <small style="color: red;" *ngIf="passwordErro">Email is invalid !</small>
+    </div>
+<br>
+    <div>
+        <p> {{allError}} </p>
+    </div>
+    <button type="submit" [disabled]="!signinForm.valid">Log in</button>
+</form>

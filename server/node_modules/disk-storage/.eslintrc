@@ -1,0 +1,10 @@
+{
+    "extends": ["standard"],
+    "globals": {
+        "fetch": true
+    },
+    "rules": {
+        "padded-blocks":"off",
+        "curly": ["error", "multi-or-nest"]
+    }
+}
