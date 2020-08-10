@@ -10,6 +10,9 @@ import { SignupComponent } from './signup/signup.component';
 import { OdersComponent } from './oders/oders.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { OdersService } from './oders/oders.service';
+import { SigninService } from './signin/signin.service';
+import { RegistrationService } from './registration.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthGuard,{
+  providers: [AuthGuard, OdersService, SigninService, RegistrationService,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true

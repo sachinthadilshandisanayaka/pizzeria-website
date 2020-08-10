@@ -1,1 +1,9 @@
 <p>oders works!</p>
+
+<ul *ngFor = "let oder of oders">
+    <li>Oder ID : {{oder.oderId}}</li>
+    <li>Product ID : {{oder.ProductId._id}} </li>
+    <li>Product Name : {{oder.ProductId.name}} </li>
+    <li>Quantity : {{oder.quantity}} </li>
+    <li>Request : {{oder.request.type}} <br> {{oder.request.url}} </li>
+</ul>

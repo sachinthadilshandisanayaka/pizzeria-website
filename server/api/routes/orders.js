@@ -17,8 +17,6 @@ router.get('/', authCheck, (req, res, next)=> {
             });
         }
         return res.status(201).json({
-            Orders: docs
-           /*  OderCount : docs.length,
             Orders: docs.map(doc => {
                 return {
                     oderId: doc._id,
@@ -29,14 +27,12 @@ router.get('/', authCheck, (req, res, next)=> {
                         url: 'http://localhost:3000/orders/' + doc._id
                     }
                 }
-            }) */
+            })
         });
     })
     .catch(err => {
-        res.status(404).json({
-            Error : err
-        });
-    });
+        return res.status(404).send('Unauthorized request')
+});
    
 });
 
@@ -55,7 +51,11 @@ router.get('/:orderId', authCheck, (req, res, next) =>{
             }
         });
     })
-    .catch();
+    .catch(err => {
+        res.status(404).json({
+            Error : err
+        });
+    });
 });
 
 router.post('/', authCheck, (req, res, next) => {
