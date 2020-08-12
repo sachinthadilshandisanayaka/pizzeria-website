@@ -1,0 +1,11 @@
+.showItem {
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+    background-color: bisque;
+}
+.showItem:hover {
+    box-shadow: 2px 2px 5px black;
+}

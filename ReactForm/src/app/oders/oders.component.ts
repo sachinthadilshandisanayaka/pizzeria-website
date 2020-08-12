@@ -30,6 +30,9 @@ export class OdersComponent implements OnInit {
         }
       }
     )
+  } 
+  selectItem(event) {
+      console.log(event.oderId);
   }
 
 }
