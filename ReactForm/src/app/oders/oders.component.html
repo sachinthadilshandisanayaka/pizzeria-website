@@ -3,9 +3,18 @@
 <ul *ngFor = "let oder of oders" type="none">
     <div class="showItem" (click)="selectItem(oder)">
         <li>Oder ID : {{oder.oderId}}</li>
-        <li>Product ID : {{oder.ProductId._id}} </li>
+        <!-- <li>Product ID : {{oder.ProductId._id}} </li> -->
         <li>Product Name : {{oder.ProductId.name}} </li>
-        <li>Quantity : {{oder.quantity}} </li>
+        <!-- <li>Quantity : {{oder.quantity}} </li> -->
         <li>Request : {{oder.request.type}} <br> {{oder.request.url}} </li>
     </div>
 </ul>
+<section [class.selectedItem]="hasClick" class="notSelectItem">
+    <div class="notSelectItem-content">
+        <span class="close" (click)="diplayItem()">&times;</span>
+        <div class="item-body">
+            <p>Product Name: {{selectItemMenu}} </p>
+            <p>Product ID: {{selectItemMenu}} </p>
+        </div>
+    </div>
+</section>

@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./oders.component.css']
 })
 export class OdersComponent implements OnInit {
-
+  hasClick = false;
   oders = [];
+  selectItemMenu=[];
   constructor(private _oderservice: OdersService,
               private _router: Router ) { }
 
@@ -32,7 +33,12 @@ export class OdersComponent implements OnInit {
     )
   } 
   selectItem(event) {
-      console.log(event.oderId);
+    this.selectItemMenu = [event.oderId, event.ProductId.name, event.ProductId._id];
+    console.log(this.selectItemMenu);
+    this.hasClick = true;
+  }
+  diplayItem() {
+    this.hasClick = false;
   }
 
 }
