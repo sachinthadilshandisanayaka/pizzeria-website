@@ -31,10 +31,14 @@ export class ProductsComponent implements OnInit {
       }
     )
   }
-  navigateOder(event) {
-    this._router.navigate([`/oders/${event}`])
-    // this._router.navigate([`/oders`])
-    console.log(`/oders/${event}`)
+  // navigateOder(orderId) {
+  //   this._router.navigate([`/oders/${orderId}`])
+  //   // this._router.navigate([`/oders`])
+  //   console.log(`/oders/${orderId}`)
+  // }
+  showProduct(productId) {
+    localStorage.setItem('productId', productId)
+    this._router.navigate(['/products/selected'])
   }
 
 }

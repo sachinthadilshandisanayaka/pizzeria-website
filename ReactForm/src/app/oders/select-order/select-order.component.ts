@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { OdersService } from '../oders.service';
 
 @Component({
   selector: 'app-select-order',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectOrderComponent implements OnInit {
 
-  constructor() { }
+  
+  constructor( private _odersService: OdersService,
+               private _router: Router ) { }
 
   ngOnInit(): void {
+   
+
   }
 
 }

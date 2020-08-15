@@ -17,6 +17,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductsService } from './products/products.service';
 import { SelectOrderComponent } from './oders/select-order/select-order.component';
 import { DeleteOrderComponent } from './oders/delete-order/delete-order.component';
+import { SelectProductComponent } from './products/select-product/select-product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DeleteOrderComponent } from './oders/delete-order/delete-order.componen
     OdersComponent,
     ProductsComponent,
     SelectOrderComponent,
-    DeleteOrderComponent
+    DeleteOrderComponent,
+    SelectProductComponent
   ],
   imports: [
     BrowserModule,

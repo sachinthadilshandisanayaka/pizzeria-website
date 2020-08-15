@@ -15,6 +15,9 @@ export class ProductsService {
     return this._http.get<any>(this._productURL);
   }
   showImage(event) {
-    return this._http.get<any>(this._imgURL )
+    return this._http.get<any>(this._imgURL+event )
+  }
+  showSelectedProduct(productId) {
+    return this._http.get<any>(this._imgURL+productId)
   }
 }

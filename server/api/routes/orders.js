@@ -36,7 +36,7 @@ router.get('/', authCheck, (req, res, next)=> {
    
 });
 
-router.get('/:orderId', authCheck, (req, res, next) =>{
+router.get('/:orderId', authCheck, (req, res, next) =>{ // view one order
     const id = req.params.orderId;
     Order.findById(id)
     .exec()
@@ -58,7 +58,7 @@ router.get('/:orderId', authCheck, (req, res, next) =>{
     });
 });
 
-router.post('/', authCheck, (req, res, next) => {
+router.post('/', authCheck, (req, res, next) => { // buy product
     const productId = req.body.productId;
     Product.findById(productId)
     .exec()
