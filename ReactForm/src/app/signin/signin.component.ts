@@ -35,7 +35,8 @@ export class SigninComponent implements OnInit {
           } 
           else {
             console.log('Loging success !', res);
-            this._router.navigate(['/oders']);
+            // this._router.navigate(['/oders']);
+            this._router.navigate(['products']);
             localStorage.setItem('token', res.token);
 
             this.emailErro = false;
