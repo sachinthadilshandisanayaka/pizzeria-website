@@ -13,13 +13,16 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { OdersService } from './oders/oders.service';
 import { SigninService } from './signin/signin.service';
 import { RegistrationService } from './registration.service';
+import { ProductsComponent } from './products/products.component';
+import { ProductsService } from './products/products.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     SignupComponent,
-    OdersComponent
+    OdersComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { RegistrationService } from './registration.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthGuard, OdersService, SigninService, RegistrationService,{
+  providers: [AuthGuard, OdersService, SigninService, RegistrationService, ProductsService, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
