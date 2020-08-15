@@ -15,6 +15,8 @@ import { SigninService } from './signin/signin.service';
 import { RegistrationService } from './registration.service';
 import { ProductsComponent } from './products/products.component';
 import { ProductsService } from './products/products.service';
+import { SelectOrderComponent } from './oders/select-order/select-order.component';
+import { DeleteOrderComponent } from './oders/delete-order/delete-order.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ProductsService } from './products/products.service';
     SigninComponent,
     SignupComponent,
     OdersComponent,
-    ProductsComponent
+    ProductsComponent,
+    SelectOrderComponent,
+    DeleteOrderComponent
   ],
   imports: [
     BrowserModule,
