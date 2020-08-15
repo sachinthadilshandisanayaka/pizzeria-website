@@ -36,7 +36,7 @@ router.get('/', (req, res, next) =>{
     Product.find()
     .select('name price _id productImage')
     .exec()
-    .then( result =>{
+    .then( result => {
         const dataArray = {
             DataCount : result.length,
             products  : result.map(doc => {
@@ -44,7 +44,7 @@ router.get('/', (req, res, next) =>{
                 return {
                     name : doc.name,
                     price : doc.price,
-                    productImage: doc.productImage,
+                    productImage: 'http://localhost:3000/' + doc.productImage,
                     _id : doc._id,
                     request : {
                         type: 'GET',
@@ -64,7 +64,7 @@ router.get('/', (req, res, next) =>{
     });
 });
 
-router.post("/", authCheck, upload.single('productImage'), (req, res, next) =>{
+router.post("/", authCheck, upload.single('productImage'), (req, res, next) => {
     
     console.log(req.file);
     const product = new Product({
