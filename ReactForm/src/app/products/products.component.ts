@@ -31,5 +31,10 @@ export class ProductsComponent implements OnInit {
       }
     )
   }
+  navigateOder(event) {
+    this._router.navigate([`/oders/${event}`])
+    // this._router.navigate([`/oders`])
+    console.log(`/oders/${event}`)
+  }
 
 }

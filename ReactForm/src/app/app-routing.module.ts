@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignupComponent, pathMatch: 'full' },
   { path: 'sign-in', component: SigninComponent, pathMatch: 'full' },
   { path: 'oders', component: OdersComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'oders/:', component: OdersComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'products' , component: ProductsComponent, pathMatch: 'full', canActivate: [AuthGuard] }
 ];
 

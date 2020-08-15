@@ -1,7 +1,7 @@
 <p>products works!</p>
 <h2>Product count: {{ productCount }} </h2>
 
-<ul class="showProducts" *ngFor = "let product of products" type="none">
+<ul class="showProducts" *ngFor = "let product of products" type="none" (click)="navigateOder(product._id)">
     <li>Product Name: {{ product.name }} </li>
     <li>Price: {{ product.price }} </li>
     <li>product ID: {{ product._id }} </li>
