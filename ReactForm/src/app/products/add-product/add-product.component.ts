@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from '../products.service';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,10 +11,19 @@ import { ProductsService } from '../products.service';
 })
 export class AddProductComponent implements OnInit {
 
+  addItemForm: FormGroup;
   constructor( private _router: Router,
-               private _productService: ProductsService) { }
+               private _productService: ProductsService,
+               private fb: FormBuilder) { }
 
   ngOnInit(): void {
+      this.addItemForm = this.fb.group({
+        name: ['', [Validators.required]],
+        price: ['', [Validators.required]],
+        productImage: ['', [Validators.required]]
+      });
   }
-
+  onSubmit() {
+    
+  }
 }
