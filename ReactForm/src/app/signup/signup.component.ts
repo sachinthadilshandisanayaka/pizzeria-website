@@ -69,17 +69,17 @@ export class SignupComponent implements OnInit {
             this.allredyUse = true;
           } else {
             console.log('Success !!', res.message);
-            this._router.navigate(['/oders']);
-            localStorage.setItem('token', res.token);
+            // this._router.navigate(['oders']);
+            // localStorage.setItem('token', res.token);
             this.allredyUse = false;
-
-            this.registationForm.patchValue({
-              username: '',
-              email: '',
-              subscribe: false,
-              password: '',
-              conformPassword: ''
-            });
+            this._router.navigate(['sign-in']);
+            // this.registationForm.patchValue({
+            //   username: '',
+            //   email: '',
+            //   subscribe: false,
+            //   password: '',
+            //   conformPassword: ''
+            // });
           }
         },
         error =>console.error('Error !', error)

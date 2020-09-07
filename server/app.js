@@ -5,12 +5,18 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-mongoose.connect("mongodb+srv://node-app:node-app@cluster0-jror1.gcp.mongodb.net/test?retryWrites=true&w=majority",
-                  
-{                 
-    useNewUrlParser: true,
-    useUnifiedTopology :true
+mongoose.connect('mongodb://localhost:27017/project01', {
+    useNewUrlParser: true
 });
+// ,
+// //mongoose.connect("mongodb+srv://node-app:sanju_01@cluster0-jror1.gcp.mongodb.net/sanju_01?retryWrites=true&w=majority",
+                  
+// {                 
+//     useNewUrlParser: true
+// });
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'MongoDb connection error: '));
+
 const productRouter = require('./api/routes/products');
 const oderRouter = require('./api/routes/orders');
 const userRouter = require('./api/routes/user');

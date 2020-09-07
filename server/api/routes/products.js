@@ -72,7 +72,7 @@ router.post("/", authCheck, upload.single('productImage'), (req, res, next) => {
         name : req.body.pname,
         price : req.body.pprice,
         productImage: req.file.path
-    });
+    }); 
     product
     .save()
     .then(result => {

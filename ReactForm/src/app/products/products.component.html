@@ -1,4 +1,10 @@
 <p>products works!</p>
+
+<div class="add-product">
+    <button type="button" routerLink='/products/add-item' routerLinkActive='active'>ADD ITEMS</button>
+</div>
+
+
 <h2>Product count: {{ productCount }} </h2>
 
 <ul class="showProducts" *ngFor = "let product of products" type="none" (click)="showProduct(product._id)">
