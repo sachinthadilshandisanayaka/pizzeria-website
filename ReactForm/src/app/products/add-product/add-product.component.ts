@@ -24,6 +24,16 @@ export class AddProductComponent implements OnInit {
       });
   }
   onSubmit() {
-    
+    console.log(this.addItemForm.value)
+    this._productService.addProduct(this.addItemForm.value)
+    .subscribe(
+      res => {
+        console.log(res.message);
+      },
+      err => {
+        console.log(err.error);
+      }
+    )
+
   }
 }
