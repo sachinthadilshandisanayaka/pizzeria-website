@@ -1,5 +1,12 @@
 <p>add-product works!</p>
 
 <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
+    <label for="name">Product name</label>
+    <input type="text" placeholder="ProductName" [class.error]="" formControlName="name" >
 
+    <label for="price">Item Price</label>
+    <input type="text" placeholder="ItemPrice" [class.error]="" formControlName="price">
+
+    <label for="image">Product Image</label>
+    <input type="file" formControlName="productImage" accept="image/*">
 </form>

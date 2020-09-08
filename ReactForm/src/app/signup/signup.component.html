@@ -9,7 +9,7 @@
             placeholder="username" formControlName="username">
     <div *ngIf="nameValidate.invalid && nameValidate.touched">
       <small style="color: red;" *ngIf="nameValidate.errors?.minlength">Name length at least 3 characters</small>
-      <small style="color: red;" *ngIf="nameValidate.errors?.required">Name is required</small>
+      <small style="color: red;" *ngIf="nameValidate.errors?.required">Name is required !</small>
       <small style="color: red;" *ngIf="nameValidate.errors?.forbidenName"> {{nameValidate.errors?.forbidenName.value}} is not allow </small>
     </div>
   </div>
