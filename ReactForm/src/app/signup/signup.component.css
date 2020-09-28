@@ -18,3 +18,6 @@ input[type="text"],input[type="email"],input[type="password"] {
     width: 95%;
     padding: 10px 0px 10px 10px;
 }
+input[type="checkbox"]{
+    padding: 10px;
+} 
