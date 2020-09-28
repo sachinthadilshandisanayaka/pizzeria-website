@@ -1,49 +1,20 @@
-form {
-    padding: 10px;
+form{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 2px 5px black;
+    border-radius: 10px;
+    padding: 20px 10px 20px 10px;
 }
-input{
-    padding: 5px;
+/* .email input{
+   display: inline;
+} */
+.subscribed input{
+    width: 10px;
 }
-.name {
-    border: 1px solid black;
-    padding: 10px;
-}
-.email {
-    border: 1px solid black;
-    padding: 10px;
-}
-.password {
-    border: 1px solid black;
-    padding: 10px;
-}
-.conformPassword {
-    border: 1px solid black;
-    padding: 10px;
-}
-.submit{
-    background-color: lightblue;
-    padding: 5px;
-    width: 80px;
-    height: 30px;
-    border: none;
-    box-shadow: 0px 1px 3px black;
-    border-radius: 6px;
-}
-.load {
-    margin-top: 10px;
-    background-color: chartreuse;
-    padding: 5px;
-    width: 120px;
-    height: 30px;
-    border: none;
-    box-shadow: 0px 1px 3px black;
-    border-radius: 6px;
-}
-.error {
-    border:1px solid red;
-    box-shadow: 0px 1px 6px rgb(239, 83, 80);
-}
-.subscribed {
-    margin-left: 40px;
-    margin-top: 10px;
+input[type="text"],input[type="email"],input[type="password"] {
+    display: flex;
+    margin-left: 10px;
+    width: 95%;
+    padding: 10px 0px 10px 10px;
 }
