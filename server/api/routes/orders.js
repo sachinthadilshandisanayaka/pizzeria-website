@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Product = require('./product-db');
-const Order = require('./order-db');
+const Product = require('../../models/product-db');
+const Order = require('../../models/order-db');
 const authCheck = require('../middleware/check-auth');
 
 router.get('/', authCheck, (req, res, next)=> {
