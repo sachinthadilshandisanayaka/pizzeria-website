@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpInterceptor } from '@angular/common/http';
-import { RegistrationService } from './registration.service'
+import { RegistrationService } from './registration.service';
 
 @Injectable()
 
