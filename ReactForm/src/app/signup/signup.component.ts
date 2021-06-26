@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { nameValidator } from '../share/user-name.validator';
 import { passwordValidator } from '../share/password.validator';
-import { RegistrationService } from '../registration.service';
+import { RegistrationService } from './registration.service';
 import { Router } from '@angular/router';
 
 @Component({

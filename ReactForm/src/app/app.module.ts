@@ -12,13 +12,14 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { OdersService } from './oders/oders.service';
 import { SigninService } from './signin/signin.service';
-import { RegistrationService } from './registration.service';
+import { RegistrationService } from './signup/registration.service';
 import { ProductsComponent } from './products/products.component';
 import { ProductsService } from './products/products.service';
 import { SelectOrderComponent } from './oders/select-order/select-order.component';
 import { DeleteOrderComponent } from './oders/delete-order/delete-order.component';
 import { SelectProductComponent } from './products/select-product/select-product.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AddProductComponent } from './products/add-product/add-product.componen
     SelectOrderComponent,
     DeleteOrderComponent,
     SelectProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

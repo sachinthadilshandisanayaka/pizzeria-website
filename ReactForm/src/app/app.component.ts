@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistrationService } from './registration.service'; // to check log in to the page
+import { RegistrationService } from './signup/registration.service'; // to check log in to the page
 
 @Component({
   selector: 'app-root',

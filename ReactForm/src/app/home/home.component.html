@@ -1,0 +1,200 @@
+<div class="front-image">
+    <div class="slideimage">
+        <img src="pizza.jpg" alt="pizza">
+    </div>
+    <div class="slideimage">
+        <img src="pizza2.jpg" alt="pizza">
+    </div>
+    <div class="slideimage">
+        <img src="pizza3.jpg" alt="pizza">
+    </div>
+
+    <aside class="image-name">
+        <h1>Welcome to Bruno's Pizzeria</h1><br>
+        <h5>Order a delicious pizza today</h5>
+    </aside>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="slidedots">
+        <span class="dots" onclick="dotslide(1)"></span>
+        <span class="dots" onclick="dotslide(2)"></span>
+        <span class="dots" onclick="dotslide(3)"></span>
+    </div>
+</div>
+<script>
+    var slideIndex = 1;
+    var t;
+    // showSlides(slideIndex);
+    timeSlides();
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function dotslide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function timeSlides() {
+        var i;
+        var x = document.getElementsByClassName("slideimage");
+        var dots = document.getElementsByClassName("dots");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" clickit", "");
+        }
+
+        if (slideIndex > x.length) { slideIndex = 1 }
+        x[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " clickit";
+        slideIndex++;
+        setTimeout(timeSlides, 4000);
+
+    }
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("slideimage");
+        var dots = document.getElementsByClassName("dots");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" clickit", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " clickit";
+        //   t = setTimeout(function(){ showSlides(slideIndex); }, 3000);
+    }
+</script>
+
+<div class="aboutUs">
+    <article>
+        <h1>Who We Are</h1>
+        <pre>         It has been a few months since this international restaurant chain opened up down Glen Aber Place. 
+           It is one of the super affordable options mentioned in this list with some pizzas costing only
+                                                                          LKR 800!
+               It is also BYOB so gather the troops and head over for a value for money meal.
+
+                                                                Contact: 0771 146 748
+        </pre>
+        <div class="chefimage">
+            <img src="chef2.jpg" alt="">
+        </div>
+    </article>
+</div>
+
+<div class="shop-menu">
+    <table>
+        <caption style="font-size: xx-large;padding-bottom: 10px;">Our Menu</caption>
+        <tr>
+            <th class="leftClass">
+                <h2>Margarita</h2>
+                <h3>Small $10 / Mediam $12 / Large $14</h3>
+                <h5>Nothinng beats the classics! With a tomato base and mozzarella chese,<br>
+                    sprinkled with the finest hebs, ypu can't say no.
+                </h5>
+            </th>
+            <th class="rightClass">
+                <h2>Aussie</h2>
+                <h3>Small $10 / Medium $12 / Large $14</h3>
+                <h5>
+                    Bacon and eggs on a pizza! Bacon, ham, mozzarella,<br>
+                    on a tomato base, topped with egg.
+                </h5>
+            </th>
+        </tr>
+
+        <tr>
+            <th class="leftClass">
+                <h2>Supreme</h2>
+                <h3>Small $10 / Mediam $12 / Large $14</h3>
+                <h5>The supreme leader of pizza (no bias here). Salami, ham, chorizo, mushrooms,<br>
+                    onions, capsicums, pineapple, on a tomato base and topped with mozzarella,<br>
+                    herbs, and garilc. You can't go wrong.
+                </h5>
+            </th>
+            <th class="rightClass">
+                <h2>Garlic</h2>
+                <h3>Small $10 / Medium $12 / Large $14</h3>
+                <h5>replace that pathetic garlic bread with the aimighty garlic pizza! Tomato base,<br>
+                    mozzarella cheese, with a heck load of garlic. You'll never see another vampire <br>
+                    near you again... or anyone for that matter.
+                    <br><br>
+                    **Comes with a complementry bottle of mouth wash.
+
+                </h5>
+            </th>
+        </tr>
+
+        <tr>
+            <th class="leftClass">
+                <h2>Hawaiian</h2>
+                <h3>Small $10 / Mediam $12 / Large $14</h3>
+                <h5>The victim of many debates over pineapple on pizza. Thr simple, ham and <br>
+                    pineapple pizza is still the most refreshing pizza on the market.
+                </h5>
+            </th>
+            <th class="rightClass">
+                <h2>BBQ Chicken</h2>
+                <h3>Small $10 / Medium $12 / Large $14</h3>
+                <h5>
+                    BBQ'd chicken breast, onions, mushrooms, and mozzarella, topped with BBQ <br>
+                    sauce. An unexpected delight!
+                </h5>
+            </th>
+        </tr>
+
+        <tr>
+            <th class="leftClass">
+                <h2>Mexicana</h2>
+                <h3>Small $10 / Mediam $12 / Large $14</h3>
+                <h5>Capsicum, hot salami, olives, onions, on a tomato base, topped with mozzarella <br>
+                    and chilli flakes.
+                </h5>
+            </th>
+            <th class="rightClass">
+                <h2>Aussie</h2>
+                <h3>Small $10 / Medium $12 / Large $14</h3>
+                <h5>
+                    Bacon and eggs on a pizza! Bacon, ham, mozzarella,<br>
+                    on a tomato base, topped with egg.
+                </h5>
+            </th>
+        </tr>
+    </table>
+</div>
+
+<button onclick="ScrollTop()" id="scrolltopButton"><span>&#9650;</span></button>
+<script>
+    function ScrollTop() {
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<div id="page_bottom">
+
+    <h2>contact us</h2>
+    <div id="bottom_info">
+        <h4>email &nbsp&nbsp&nbsp:<strong>&nbspsachidisanayaka98@gmail.com</strong><br>
+            mobile &nbsp:<strong>&nbsp+94711427041</strong><br>
+            home &nbsp&nbsp&nbsp:<strong>&nbsp+94266624021</strong></h4>
+
+    </div>
+
+    <div id="bottom_item">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-google"></a>
+    </div>
+    <p>Copyright &#169; 2020</p>
+</div>

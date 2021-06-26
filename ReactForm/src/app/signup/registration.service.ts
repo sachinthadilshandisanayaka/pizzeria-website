@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 export class RegistrationService {
 
   _url = 'http://localhost:3000/user/signup';
-  constructor(private _http: HttpClient, 
-              private _router: Router) { }
+  constructor(private _http: HttpClient,
+    private _router: Router) { }
 
-  register (userData) {
+  register(userData) {
     return this._http.post<any>(this._url, userData);
   }
   loggedIn() {
@@ -22,7 +22,7 @@ export class RegistrationService {
   }
   logoutUser() {
     localStorage.removeItem('token'),
-    this._router.navigate(['/'])
+      this._router.navigate(['/'])
   }
 
 }
