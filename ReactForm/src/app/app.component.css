@@ -42,9 +42,9 @@ button:hover {
 body {
   margin: 0;
   /* background-image: url("pizza4.jpg"); */
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
   background-color: rgba(0,0,0, .8);
 }
 .header-menu {
