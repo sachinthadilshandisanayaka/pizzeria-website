@@ -1,6 +1,6 @@
 <div class="front-image">
     <div class="image-show">
-        
+
     </div>
     <!-- <div class="slideimage">
         <img src="assets/pizza2.jpg" alt="pizza">
@@ -96,26 +96,28 @@
 </div>
 
 <div class="shop-menu">
-    <table>
-        <caption style="font-size: xx-large;padding-bottom: 10px;">Our Menu</caption>
-        <tr *ngIf="isNothaveProducts; else elseBlock">
-            <td>
-                <h2>
-                    No Items
-                </h2>
-            </td>
-        </tr>
+    <div class="show-product-database">
+        <div class="no-item-show" *ngIf="isNothaveProducts; else elseBlock">
+            <h2>
+                No items
+            </h2>
+        </div>
         <ng-template #elseBlock>
-            <tr class="show-product-database" *ngFor="let product of products">
-                <td>
+            <div *ngFor="let product of products" class='product-column'>
+                <div class="product-tile">
                     <h2>{{product.name}}</h2>
                     <h3>Small ${{product.smallPrice}} / Mediam ${{product.mediamPrice}} / Large
                         ${{product.largePrice}}
                     </h3>
                     <h5>{{product.description}}</h5>
-                </td>
-            </tr>
+                </div>
+
+            </div>
         </ng-template>
+    </div>
+    <!-- <table>
+        <caption style="font-size: xx-large;padding-bottom: 10px;">Our Menu</caption>
+
 
         <tr>
             <th class="leftClass">
@@ -192,7 +194,7 @@
                 </h5>
             </th>
         </tr>
-    </table>
+    </table> -->
 </div>
 
 <button onclick="ScrollTop()" id="scrolltopButton"><span>&#9650;</span></button>
