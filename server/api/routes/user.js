@@ -18,7 +18,7 @@ router.post('/signup', (req, res, next) => {
         .exec()
         .then(docs => {
             if (docs.length >= 1) {
-                res.status(200).json({
+                res.status(401).json({
                     message: 'Email is already used'
                 });
             } else {

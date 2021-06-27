@@ -4,19 +4,34 @@
     </div>
     <div class="header-link">
         <a routerLink="/home" routerLinkActive='active'>Home</a>
-        <a routerLink="/oders" routerLinkActive='active'>Oders</a>
+        <a routerLink="/oders" routerLinkActive='active'>Orders</a>
         <a routerLink="/products" routerLinkActive='active'>Products</a>
-        <a routerLink='/sign-up' routerLinkActive='active' *ngIf="!_authService.loggedIn()"> SIGNUP</a>
-        <a routerLink='/sign-in' routerLinkActive='active' *ngIf="!_authService.loggedIn()"> SIGNIN</a>
+        <a routerLink='/sign-up' routerLinkActive='active' *ngIf="!_authService.loggedIn()">Sign up</a>
+        <a routerLink='/sign-in' routerLinkActive='active' *ngIf="!_authService.loggedIn()">Sign in</a>
         <a (click)="_authService.logoutUser()" routerLinkActive='active' *ngIf="_authService.loggedIn()">LOGOUT</a>
     </div>
 </div>
-<!-- <button class=" button" routerLink='/sign-up' routerLinkActive='active' *ngIf="!_authService.loggedIn()"><span> SIGN
-        UP</span></button>
-<button style="width: auto;" class="button" routerLink='/sign-in' routerLinkActive='active'
-    *ngIf="!_authService.loggedIn()"><span> SIGN IN</span></button>
-<button style="width: auto;" class="button" (click)="_authService.logoutUser()" routerLinkActive='active'
-    *ngIf="_authService.loggedIn()"><span> LOG OUT</span></button> -->
+<script>
+    window.onscroll = function () {
+        scrollFunction()
+    };
+    function scrollFunction() {
+        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            document.getElementById("header-menu").style.paddingTop = "0px";
+            document.getElementById("header-menu").style.backgroundColor = "#34495E";
+            document.getElementById("header-menu").style.boxShadow = "2px 2px 5px black";
+            document.getElementById("scrolltopButton").style.display = "block";
+        }
+        else {
+            document.getElementById("header-menu").style.paddingTop = "20px";
+            document.getElementById("header-menu").style.backgroundColor = "";
+            document.getElementById("header-menu").style.boxShadow = "0 0 0 black";
+            document.getElementById("scrolltopButton").style.display = "none";
+        }
+
+    }
+</script>
+
 
 
 <router-outlet></router-outlet>

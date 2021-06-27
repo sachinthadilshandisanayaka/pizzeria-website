@@ -4,6 +4,7 @@ import { nameValidator } from '../share/user-name.validator';
 import { passwordValidator } from '../share/password.validator';
 import { RegistrationService } from './registration.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -12,9 +13,9 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  public allredyUse = false; 
+  public allredyUse = false;
   registationForm: FormGroup;
-  constructor(private fb: FormBuilder, private _registrationService: RegistrationService,private _router: Router) {}
+  constructor(private fb: FormBuilder, private _registrationService: RegistrationService, private _router: Router) { }
 
   ngOnInit() {
     this.registationForm = this.fb.group({
@@ -23,7 +24,7 @@ export class SignupComponent implements OnInit {
       subscribe: [false],
       password: ['', [Validators.required]],
       conformPassword: ['']
-    }, {validator: passwordValidator});
+    }, { validator: passwordValidator });
 
     this.registationForm.get('subscribe').valueChanges
       .subscribe(getValue => {
@@ -32,15 +33,15 @@ export class SignupComponent implements OnInit {
           email.setValidators(Validators.required);
         } else {
           email.clearValidators();
-        } 
+        }
         email.updateValueAndValidity();
       });
   }
 
-  get nameValidate(){
+  get nameValidate() {
     return this.registationForm.get('username');
   }
-  get getEmail(){
+  get getEmail() {
     return this.registationForm.get('email');
   }
 
@@ -64,7 +65,8 @@ export class SignupComponent implements OnInit {
     this._registrationService.register(this.registationForm.value)
       .subscribe(
         res => {
-          if( res.message == 'Email is already used') {
+
+          if (res.message == 'Email is already used') {
             console.log('email is already used !');
             this.allredyUse = true;
           } else {
@@ -82,7 +84,15 @@ export class SignupComponent implements OnInit {
             // });
           }
         },
-        error =>console.error('Error !', error)
+        err => {
+          if (err instanceof HttpErrorResponse) {
+            if (err.status === 401) {
+              console.log('email is already used !!!!');
+              this.allredyUse = true;
+            }
+          }
+          console.error('Error !', err)
+        }
       );
   }
 

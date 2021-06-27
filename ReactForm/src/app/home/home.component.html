@@ -1,13 +1,13 @@
 <div class="front-image">
-    <div class="slideimage">
-        <img src="pizza.jpg" alt="pizza">
+    <div class="image-show">
+        
+    </div>
+    <!-- <div class="slideimage">
+        <img src="assets/pizza2.jpg" alt="pizza">
     </div>
     <div class="slideimage">
-        <img src="pizza2.jpg" alt="pizza">
-    </div>
-    <div class="slideimage">
-        <img src="pizza3.jpg" alt="pizza">
-    </div>
+        <img src="assets/pizza3.jpg" alt="pizza">
+    </div> -->
 
     <aside class="image-name">
         <h1>Welcome to Bruno's Pizzeria</h1><br>
@@ -23,7 +23,7 @@
         <span class="dots" onclick="dotslide(3)"></span>
     </div>
 </div>
-<script>
+<!-- <script>
     var slideIndex = 1;
     var t;
     // showSlides(slideIndex);
@@ -75,7 +75,9 @@
         dots[slideIndex - 1].className += " clickit";
         //   t = setTimeout(function(){ showSlides(slideIndex); }, 3000);
     }
-</script>
+
+  
+</script> -->
 
 <div class="aboutUs">
     <article>
@@ -96,6 +98,25 @@
 <div class="shop-menu">
     <table>
         <caption style="font-size: xx-large;padding-bottom: 10px;">Our Menu</caption>
+        <tr *ngIf="isNothaveProducts; else elseBlock">
+            <td>
+                <h2>
+                    No Items
+                </h2>
+            </td>
+        </tr>
+        <ng-template #elseBlock>
+            <tr class="show-product-database" *ngFor="let product of products">
+                <td>
+                    <h2>{{product.name}}</h2>
+                    <h3>Small ${{product.smallPrice}} / Mediam ${{product.mediamPrice}} / Large
+                        ${{product.largePrice}}
+                    </h3>
+                    <h5>{{product.description}}</h5>
+                </td>
+            </tr>
+        </ng-template>
+
         <tr>
             <th class="leftClass">
                 <h2>Margarita</h2>

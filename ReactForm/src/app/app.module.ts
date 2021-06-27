@@ -10,6 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 import { OdersComponent } from './oders/oders.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { HomeService } from './home/home.service';
 import { OdersService } from './oders/oders.service';
 import { SigninService } from './signin/signin.service';
 import { RegistrationService } from './signup/registration.service';
@@ -40,7 +41,7 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthGuard, OdersService, SigninService, RegistrationService, ProductsService, {
+  providers: [AuthGuard, OdersService, SigninService, RegistrationService, ProductsService, HomeService, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
