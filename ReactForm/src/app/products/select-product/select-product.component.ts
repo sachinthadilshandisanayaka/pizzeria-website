@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -9,27 +9,35 @@ import { ProductsService } from '../products.service';
 })
 export class SelectProductComponent implements OnInit {
   name: any
-  price:any
-  id:any
-  productImage;any
-  constructor( private _rouer: Router,
-               private _productService: ProductsService) { }
+  smallPrice: any
+  mediamPrice: any
+  largePrice: any
+  id: any
+  description: any
+  public productId: String;
+
+  constructor(private _rouer: Router,
+    private _productService: ProductsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this._productService.showSelectedProduct(localStorage.getItem('productId'))
-    .subscribe(
-      res => {
-        console.log(res)
-        this.name = res.product.name
-        this.id = res.product._id
-        this.price = res.product.price
-        this.productImage = res.product.productImage
-      },
-      err => {
-        console.log(err)
-      }
-    )
-    
+    let idParam = this.route.snapshot.paramMap.get('id');
+    this.productId = idParam.toString();
+    this._productService.showSelectedProduct(this.productId)
+      .subscribe(
+        res => {
+          console.log(res)
+          this.name = res.product.name
+          this.id = res.product._id
+          this.smallPrice = res.product.smallPrice
+          this.mediamPrice = res.product.mediamPrice
+          this.largePrice = res.product.largePrice
+          this.description = res.product.description
+        },
+        err => {
+          console.log(err)
+        }
+      )
+
   }
 
 }

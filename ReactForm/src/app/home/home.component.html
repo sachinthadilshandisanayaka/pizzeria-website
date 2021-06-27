@@ -90,7 +90,7 @@
                                                                 Contact: 0771 146 748
         </pre>
         <div class="chefimage">
-            <img src="chef2.jpg" alt="">
+            <!-- <img src="chef2.jpg" alt=""> -->
         </div>
     </article>
 </div>
@@ -98,103 +98,113 @@
 <div class="shop-menu">
     <div class="show-product-database">
         <div class="no-item-show" *ngIf="isNothaveProducts; else elseBlock">
-            <h2>
+            <p>
                 No items
-            </h2>
+            </p>
         </div>
         <ng-template #elseBlock>
-            <div *ngFor="let product of products" class='product-column'>
-                <div class="product-tile">
-                    <h2>{{product.name}}</h2>
-                    <h3>Small ${{product.smallPrice}} / Mediam ${{product.mediamPrice}} / Large
-                        ${{product.largePrice}}
-                    </h3>
-                    <h5>{{product.description}}</h5>
-                </div>
-
+            <div *ngFor='let product of products' class='product-column'>
+                <table class='product-tile' (click)="showClickedProduct(product._id)">
+                    <tr>
+                        <td>
+                            <div class="product-image-div">
+                                <img [src]='product.productImage' alt="product image">
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <h2>{{product.name}}</h2>
+                                <h3>Small ${{product.smallPrice}} / Mediam ${{product.mediamPrice}} / Large
+                                    ${{product.largePrice}}
+                                </h3>
+                                <h5>{{product.description}}</h5>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </ng-template>
     </div>
     <!-- <table>
-        <caption style="font-size: xx-large;padding-bottom: 10px;">Our Menu</caption>
+        <caption style=" font-size: xx-large;padding-bottom: 10px;">Our Menu</caption>
 
 
-        <tr>
-            <th class="leftClass">
-                <h2>Margarita</h2>
-                <h3>Small $10 / Mediam $12 / Large $14</h3>
-                <h5>Nothinng beats the classics! With a tomato base and mozzarella chese,<br>
-                    sprinkled with the finest hebs, ypu can't say no.
-                </h5>
-            </th>
-            <th class="rightClass">
-                <h2>Aussie</h2>
-                <h3>Small $10 / Medium $12 / Large $14</h3>
-                <h5>
-                    Bacon and eggs on a pizza! Bacon, ham, mozzarella,<br>
-                    on a tomato base, topped with egg.
-                </h5>
-            </th>
-        </tr>
+                    <tr>
+                        <th class="leftClass">
+                            <h2>Margarita</h2>
+                            <h3>Small $10 / Mediam $12 / Large $14</h3>
+                            <h5>Nothinng beats the classics! With a tomato base and mozzarella chese,<br>
+                                sprinkled with the finest hebs, ypu can't say no.
+                            </h5>
+                        </th>
+                        <th class="rightClass">
+                            <h2>Aussie</h2>
+                            <h3>Small $10 / Medium $12 / Large $14</h3>
+                            <h5>
+                                Bacon and eggs on a pizza! Bacon, ham, mozzarella,<br>
+                                on a tomato base, topped with egg.
+                            </h5>
+                        </th>
+                    </tr>
 
-        <tr>
-            <th class="leftClass">
-                <h2>Supreme</h2>
-                <h3>Small $10 / Mediam $12 / Large $14</h3>
-                <h5>The supreme leader of pizza (no bias here). Salami, ham, chorizo, mushrooms,<br>
-                    onions, capsicums, pineapple, on a tomato base and topped with mozzarella,<br>
-                    herbs, and garilc. You can't go wrong.
-                </h5>
-            </th>
-            <th class="rightClass">
-                <h2>Garlic</h2>
-                <h3>Small $10 / Medium $12 / Large $14</h3>
-                <h5>replace that pathetic garlic bread with the aimighty garlic pizza! Tomato base,<br>
-                    mozzarella cheese, with a heck load of garlic. You'll never see another vampire <br>
-                    near you again... or anyone for that matter.
-                    <br><br>
-                    **Comes with a complementry bottle of mouth wash.
+                    <tr>
+                        <th class="leftClass">
+                            <h2>Supreme</h2>
+                            <h3>Small $10 / Mediam $12 / Large $14</h3>
+                            <h5>The supreme leader of pizza (no bias here). Salami, ham, chorizo, mushrooms,<br>
+                                onions, capsicums, pineapple, on a tomato base and topped with mozzarella,<br>
+                                herbs, and garilc. You can't go wrong.
+                            </h5>
+                        </th>
+                        <th class="rightClass">
+                            <h2>Garlic</h2>
+                            <h3>Small $10 / Medium $12 / Large $14</h3>
+                            <h5>replace that pathetic garlic bread with the aimighty garlic pizza! Tomato base,<br>
+                                mozzarella cheese, with a heck load of garlic. You'll never see another vampire <br>
+                                near you again... or anyone for that matter.
+                                <br><br>
+                                **Comes with a complementry bottle of mouth wash.
 
-                </h5>
-            </th>
-        </tr>
+                            </h5>
+                        </th>
+                    </tr>
 
-        <tr>
-            <th class="leftClass">
-                <h2>Hawaiian</h2>
-                <h3>Small $10 / Mediam $12 / Large $14</h3>
-                <h5>The victim of many debates over pineapple on pizza. Thr simple, ham and <br>
-                    pineapple pizza is still the most refreshing pizza on the market.
-                </h5>
-            </th>
-            <th class="rightClass">
-                <h2>BBQ Chicken</h2>
-                <h3>Small $10 / Medium $12 / Large $14</h3>
-                <h5>
-                    BBQ'd chicken breast, onions, mushrooms, and mozzarella, topped with BBQ <br>
-                    sauce. An unexpected delight!
-                </h5>
-            </th>
-        </tr>
+                    <tr>
+                        <th class="leftClass">
+                            <h2>Hawaiian</h2>
+                            <h3>Small $10 / Mediam $12 / Large $14</h3>
+                            <h5>The victim of many debates over pineapple on pizza. Thr simple, ham and <br>
+                                pineapple pizza is still the most refreshing pizza on the market.
+                            </h5>
+                        </th>
+                        <th class="rightClass">
+                            <h2>BBQ Chicken</h2>
+                            <h3>Small $10 / Medium $12 / Large $14</h3>
+                            <h5>
+                                BBQ'd chicken breast, onions, mushrooms, and mozzarella, topped with BBQ <br>
+                                sauce. An unexpected delight!
+                            </h5>
+                        </th>
+                    </tr>
 
-        <tr>
-            <th class="leftClass">
-                <h2>Mexicana</h2>
-                <h3>Small $10 / Mediam $12 / Large $14</h3>
-                <h5>Capsicum, hot salami, olives, onions, on a tomato base, topped with mozzarella <br>
-                    and chilli flakes.
-                </h5>
-            </th>
-            <th class="rightClass">
-                <h2>Aussie</h2>
-                <h3>Small $10 / Medium $12 / Large $14</h3>
-                <h5>
-                    Bacon and eggs on a pizza! Bacon, ham, mozzarella,<br>
-                    on a tomato base, topped with egg.
-                </h5>
-            </th>
-        </tr>
-    </table> -->
+                    <tr>
+                        <th class="leftClass">
+                            <h2>Mexicana</h2>
+                            <h3>Small $10 / Mediam $12 / Large $14</h3>
+                            <h5>Capsicum, hot salami, olives, onions, on a tomato base, topped with mozzarella <br>
+                                and chilli flakes.
+                            </h5>
+                        </th>
+                        <th class="rightClass">
+                            <h2>Aussie</h2>
+                            <h3>Small $10 / Medium $12 / Large $14</h3>
+                            <h5>
+                                Bacon and eggs on a pizza! Bacon, ham, mozzarella,<br>
+                                on a tomato base, topped with egg.
+                            </h5>
+                        </th>
+                    </tr>
+                </table> -->
 </div>
 
 <button onclick="ScrollTop()" id="scrolltopButton"><span>&#9650;</span></button>

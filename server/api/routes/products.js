@@ -110,7 +110,7 @@ router.post("/", authCheck, upload.single('productImage'), (req, res, next) => {
 router.get('/:productId', (req, res, next) => {
     const pId = req.params.productId;
     Product.findById(pId)
-        .select('name price _id productImage')
+        .select('name smallPrice mediamPrice largePrice description _id productImage request')
         .exec()
         .then(result => {
             res.status(201).json({

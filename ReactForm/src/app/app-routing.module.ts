@@ -17,9 +17,9 @@ const routes: Routes = [
   { path: 'sign-up', component: SignupComponent, pathMatch: 'full' },
   { path: 'sign-in', component: SigninComponent, pathMatch: 'full' },
   { path: 'oders', component: OdersComponent, pathMatch: 'full', canActivate: [AuthGuard] },
-  { path: 'oders/:orderId', component: SelectOrderComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'oders/:id', component: SelectOrderComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'products', component: ProductsComponent, pathMatch: 'full', canActivate: [AuthGuard] },
-  { path: 'products/selected', component: SelectProductComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'products/:id', component: SelectProductComponent, pathMatch: 'full' },
   { path: 'products/add-item', component: AddProductComponent, pathMatch: 'full', canActivate: [AuthGuard] }
 ];
 

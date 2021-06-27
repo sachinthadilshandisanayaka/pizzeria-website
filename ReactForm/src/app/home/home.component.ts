@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit {
         }
       )
   }
-  
+  showClickedProduct(event) {
+    this._roter.navigate(['/products', event])
+  }
 
 }
