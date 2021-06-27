@@ -103,26 +103,54 @@
             </p>
         </div>
         <ng-template #elseBlock>
-            <div *ngFor='let product of products' class='product-column'>
-                <table class='product-tile' (click)="showClickedProduct(product._id)">
-                    <tr>
-                        <td>
-                            <div class="product-image-div">
-                                <img [src]='product.productImage' alt="product image">
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <h2>{{product.name}}</h2>
-                                <h3>Small ${{product.smallPrice}} / Mediam ${{product.mediamPrice}} / Large
-                                    ${{product.largePrice}}
-                                </h3>
-                                <h5>{{product.description}}</h5>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+            <!-- <mat-grid-list cols="2" *ngFor='let product of products' class='product-column'>
+                <mat-grid-tile class='product-tile' (click)="showClickedProduct(product._id)">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="product-image-div">
+                                    <img [src]='product.productImage' alt="product image">
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <h2>{{product.name}}</h2>
+                                    <h3>Small ${{product.smallPrice}} / Mediam ${{product.mediamPrice}} / Large
+                                        ${{product.largePrice}}
+                                    </h3>
+                                    <h5>{{product.description}}</h5>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </mat-grid-tile>
+
+            </mat-grid-list> -->
+            <div fxLayout="row wrap">
+                <div fxFlex="50%" *ngFor='let product of products; index as i' class='product-column'>
+                    <table class='product-tile' (click)="showClickedProduct(product._id)">
+                        <tr>
+                            <td>
+                                <div class="product-image-div">
+                                    <img [src]='product.productImage' alt="product image">
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <h2>{{product.name}}</h2>
+                                    <h3>Small ${{product.smallPrice}} / Mediam ${{product.mediamPrice}} / Large
+                                        ${{product.largePrice}}
+                                    </h3>
+                                    <h5>{{product.description}}</h5>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
             </div>
+
         </ng-template>
     </div>
     <!-- <table>

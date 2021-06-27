@@ -21,6 +21,9 @@ import { DeleteOrderComponent } from './oders/delete-order/delete-order.componen
 import { SelectProductComponent } from './products/select-product/select-product.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout'
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [AuthGuard, OdersService, SigninService, RegistrationService, ProductsService, HomeService, {
     provide: HTTP_INTERCEPTORS,
