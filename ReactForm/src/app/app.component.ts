@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { RegistrationService } from './signup/registration.service'; // to check log in to the page
 
 @Component({
@@ -6,11 +6,21 @@ import { RegistrationService } from './signup/registration.service'; // to check
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-   constructor(public _authService: RegistrationService) {} // see html file
+export class AppComponent implements OnInit {
+  isScroll = false;
+  constructor(public _authService: RegistrationService) { } // see html file
 
   ngOnInit() {
-    }
-   
   }
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event) {
+    console.log(document.documentElement.scrollTop);
+    if (document.documentElement.scrollTop > 80) {
+      this.isScroll = true;
+    }
+    if (document.documentElement.scrollTop < 80) {
+      this.isScroll = false;
+    }
+  }
+}
 
