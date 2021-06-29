@@ -1,16 +1,42 @@
-<p>products works!</p>
+<div class="add-item-main-fram">
 
-<div class="add-product">
-    <button type="button" routerLink='/products/add-item' routerLinkActive='active'>ADD ITEMS</button>
+    <div class="detail-body">
+        <div class="add-product">
+            <button type="button" (click)="addProduct()">ADD ITEMS</button>
+        </div>
+        <h2 class="product-count">Product count: {{ productCount }} </h2>
+        <div class="showProducts">
+            <div class="no-item-show" *ngIf="isNothaveProducts; else elseBlock">
+                <p>
+                    No items
+                </p>
+            </div>
+            <ng-template #elseBlock>
+                <div fxLayout="row wrap">
+                    <div fxFlex="50%" *ngFor='let product of products; index as i' class='product-column'>
+                        <table class='product-tile'>
+                            <tr>
+                                <td>
+                                    <div class="product-image-div">
+                                        <img [src]='product.productImage' alt="product image">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <h2>{{product.name}}</h2>
+                                        <h3>Small ${{product.smallPrice}} / Mediam ${{product.mediamPrice}} / Large
+                                            ${{product.largePrice}}
+                                        </h3>
+                                        <h5>{{product.description}}</h5>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+
 </div>
-
-
-<h2>Product count: {{ productCount }} </h2>
-
-<ul class="showProducts" *ngFor = "let product of products" type="none" (click)="showProduct(product._id)">
-    <li>Product Name: {{ product.name }} </li>
-    <li>Price: {{ product.price }} </li>
-    <li>product ID: {{ product._id }} </li>
-    <li> {{ product.productImage }} </li>
-    <img [src]='product.productImage' alt="product image" style="position: relative;width: 100px;height: 100px;">
-</ul>

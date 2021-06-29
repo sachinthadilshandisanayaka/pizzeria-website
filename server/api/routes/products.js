@@ -100,7 +100,7 @@ router.post("/", authCheck, upload.single('productImage'), (req, res, next) => {
                 })
         })
         .catch(err => {
-            res.status(404).json({
+            res.status(401).json({
                 error: 'error is hear'
             });
             console.log(err);

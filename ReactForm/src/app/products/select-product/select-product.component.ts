@@ -14,6 +14,7 @@ export class SelectProductComponent implements OnInit {
   largePrice: any
   id: any
   description: any
+  image: any
   public productId: String;
 
   constructor(private _rouer: Router,
@@ -31,6 +32,7 @@ export class SelectProductComponent implements OnInit {
           this.smallPrice = res.product.smallPrice
           this.mediamPrice = res.product.mediamPrice
           this.largePrice = res.product.largePrice
+          this.image = 'http://localhost:3000/' + res.product.productImage
           this.description = res.product.description
         },
         err => {

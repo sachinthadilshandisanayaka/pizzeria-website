@@ -17,8 +17,7 @@ export class AppComponent implements OnInit {
     console.log(document.documentElement.scrollTop);
     if (document.documentElement.scrollTop > 80) {
       this.isScroll = true;
-    }
-    if (document.documentElement.scrollTop < 80) {
+    } else {
       this.isScroll = false;
     }
   }

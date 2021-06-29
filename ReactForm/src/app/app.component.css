@@ -1,19 +1,15 @@
-html {
-  scroll-behavior: smooth;
-}
-body {
-  margin: 0;
-  background-color: rgba(0,0,0, .8);
-}
 .header-menu {
-    position: relative;
-    position: sticky;
-    top: 0px;
-    padding-top: 20px;
-    transition: .7s;
-    color: white;
-    text-shadow: 2px 1px 5px black;
-    z-index: 99;
+  position: relative;
+  position: fixed;
+  width: 100%;
+  /* height: 30px;  */
+  /* top: 0px; */
+  overflow: hidden;
+  padding-top: 20px;
+  transition: .7s;
+  color: white;
+  text-shadow: 2px 1px 5px black;
+  z-index: 99;
 }
 .header-link {
   position: absolute;
@@ -26,6 +22,7 @@ body {
   margin-right: 20px;
   transition: padding-bottom .3s ease-in-out;
   color: white;
+  cursor: pointer;
 }
 .header-link a:hover {
   border-bottom: 2px solid white;
@@ -40,5 +37,4 @@ body {
 }
 .header-name h2{
   border-bottom: 3px solid white;
-  
 }

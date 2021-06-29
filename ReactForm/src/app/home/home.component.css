@@ -5,7 +5,6 @@
     position: absolute;
     top: 0;
     box-shadow: 2px 0px 10px black;
-    
     }
     .image-show {
       position: relative;
@@ -76,11 +75,11 @@
     }
     
 .aboutUs{
-    clear: both;
     position: relative;
-    margin-top: 660px;
+    margin-top: 60px;
     background-color: white;
     height: 300px;
+    padding-top: 30px;
   }
   .chefimage {
     position: absolute;
@@ -103,53 +102,28 @@
   .chefimage img:hover {
     transform: scale(1.2);
   }
-  .aboutUs article h1{
+  .aboutustitle{
     margin-left: 365px;
-    font-family: Trebuchet MS;
+    font-family: Trebuchet;
     font-size: xx-large;
   }
-  .aboutUs article pre {
+  .aboutusdescription {
+    color: black;
     margin-top: 50px;
     font-family: Constantia;
     margin-left: 60px;
     font-size: large;
+    text-align: center;
   }
   .shop-menu {
-    
+    /* background-color: #4DB6AC; */
+    background-color: rgba(0,0,0, .4);
     color: black;
     padding-top: 10px;
     padding-bottom: 30px;
     overflow: hidden;
   }
-  .shop-menu table {
-    margin-left: auto;
-    margin-right: auto;
-    /* text-shadow: 2px 2px 5px black; */
-    cursor: pointer;
-  }
-  .shop-menu table th {
-    padding: 10px;
-    width: 500px;
-    border-radius: 20px;
-  }
-  .shop-menu .leftClass {
-    text-align: left;
-    position: relative;
-    transition: .3s;
-  }
-  .shop-menu .rightClass {
-    text-align: right;
-    position: relative;
-    transition: .3s;
-  }
-  .shop-menu .leftClass:hover{
-    box-shadow: 2px 2px 5px black;
-    transform: scale(1.1);
-  }
-  .shop-menu .rightClass:hover {
-    box-shadow: 2px 2px 5px black;
-    transform: scale(1.1);
-  }
+
   #scrolltopButton {
     display: none;
     position: fixed;
@@ -255,6 +229,8 @@
     padding: 10px;  
   }
   .product-tile {
+    background-color: #4DB6AC;
+    border-radius: 10px;
     cursor: pointer;
     padding: 20px;
     transition: .3s;

@@ -1,9 +1,9 @@
-<div class="header-menu" id="header-menu" [style.background-color]="isScroll? 'rgb(209, 136, 0)' : ''"
+<div class="header-menu" id="header-menu" [style.background-color]="isScroll? '#4DB6AC' : ''"
     [style.height]="isScroll ? '30px' : '120px' ">
     <div class="header-name" [style.margin-top]="isScroll ? '0px' : '25px' ">
         <h2 [style.padding-bottom]="isScroll ? '0px' : '5px' ">Bruno's Pizzeria</h2>
     </div>
-    <div class=" header-link" [style.margin-top]="isScroll ? '0px' : '35px' ">
+    <div class=" header-link" [style.margin-top]="isScroll ? '2px' : '35px' ">
         <a routerLink="/home" routerLinkActive='active'>Home</a>
         <a routerLink="/oders" routerLinkActive='active'>Orders</a>
         <a routerLink="/products" routerLinkActive='active'>Products</a>
@@ -12,25 +12,4 @@
         <a (click)="_authService.logoutUser()" routerLinkActive='active' *ngIf="_authService.loggedIn()">Log out</a>
     </div>
 </div>
-<script>
-    window.onscroll = function () {
-        scrollFunction()
-    };
-    function scrollFunction() {
-        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-            document.getElementById("header-menu").style.paddingTop = "0px";
-            document.getElementById("header-menu").style.backgroundColor = "#34495E";
-            document.getElementById("header-menu").style.boxShadow = "2px 2px 5px black";
-            document.getElementById("scrolltopButton").style.display = "block";
-        }
-        else {
-            document.getElementById("header-menu").style.paddingTop = "20px";
-            document.getElementById("header-menu").style.backgroundColor = "";
-            document.getElementById("header-menu").style.boxShadow = "0 0 0 black";
-            document.getElementById("scrolltopButton").style.display = "none";
-        }
-
-    }
-</script>
-
 <router-outlet (scroll)="onScroll($event)"></router-outlet>

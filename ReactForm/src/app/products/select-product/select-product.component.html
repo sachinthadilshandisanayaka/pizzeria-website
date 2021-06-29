@@ -1,8 +1,21 @@
-<p>select-product works!</p>
-<div style="background-color: aqua;padding: 10px;border: 1px solid black;">
-   <h2>{{name}}</h2>
-   <h3>Small ${{smallPrice}} / Mediam ${{mediamPrice}} / Large
-      ${{largePrice}}
-   </h3>
-   <h5>{{description}}</h5>
+<div class="select-item-display">
+
+   <table class="item-show">
+      <tr>
+         <td>
+            <div class="product-image-div">
+               <img [src]='image' alt="product image">
+            </div>
+         </td>
+         <td>
+            <div>
+               <h2>{{name}}</h2>
+               <h3>Small ${{smallPrice}} / Mediam ${{mediamPrice}} / Large
+                  ${{largePrice}}
+               </h3>
+               <h5>{{description}}</h5>
+            </div>
+         </td>
+      </tr>
+   </table>
 </div>

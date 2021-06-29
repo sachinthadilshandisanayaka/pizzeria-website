@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'oders/:id', component: SelectOrderComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'products', component: ProductsComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'products/:id', component: SelectProductComponent, pathMatch: 'full' },
-  { path: 'products/add-item', component: AddProductComponent, pathMatch: 'full', canActivate: [AuthGuard] }
+  { path: 'products/new/add-item', component: AddProductComponent, pathMatch: 'full', canActivate: [AuthGuard] }
 ];
 
 @NgModule({
