@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../products.service';
@@ -16,6 +17,7 @@ export class SelectProductComponent implements OnInit {
   description: any
   image: any
   public productId: String;
+  errorMessage = ''
 
   constructor(private _rouer: Router,
     private _productService: ProductsService, private route: ActivatedRoute) { }
@@ -36,7 +38,12 @@ export class SelectProductComponent implements OnInit {
           this.description = res.product.description
         },
         err => {
-          console.log(err)
+          if (err instanceof HttpErrorResponse) {
+            if (err.status == 401) {
+              this.errorMessage = err.error;
+              console.log(err.error);
+            }
+          }
         }
       )
 

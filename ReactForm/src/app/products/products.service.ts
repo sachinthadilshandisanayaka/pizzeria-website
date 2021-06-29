@@ -24,4 +24,7 @@ export class ProductsService {
   addProduct(itemsData) {
     return this._http.post<any>(this._addProductURL, itemsData)
   }
+  patchProduct(itemsData, id) {
+    return this._http.patch<any>(this._imgURL + id, itemsData)
+  }
 }

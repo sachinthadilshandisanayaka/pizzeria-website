@@ -1,0 +1,91 @@
+<div class="main-body">
+    <div class="scroll-screen">
+        <div class="header">
+            <h2>
+                Update item
+            </h2>
+        </div>
+        <div class="image-show">
+            <img [src]='image' alt="">
+        </div>
+        <div class="form-section">
+            <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()" class="add-item-form">
+                <div class="upload-succes-div" *ngIf="isUpload">
+                    <p>
+                        Update success
+                    </p>
+                </div>
+                <table class="table-form">
+                    <tr>
+                        <th class="label-name">
+                            <label for="name">Item name</label>
+                        </th>
+                        <th>
+                            <input type="text" placeholder="Item Name" formControlName="name" value={{name}}>
+                        </th>
+
+                    </tr>
+
+                    <tr>
+                        <th class="label-name">
+                            <label for="price">Small item Price</label>
+                        </th>
+                        <th>
+                            <input type="text" placeholder="Small item Price" formControlName="smallPrice"
+                                value={{smallPrice}}>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <th class="label-name">
+                            <label for="price">Small Price</label>
+                        </th>
+                        <th>
+                            <input type="text" placeholder="Medium item Price" formControlName="mediamPrice"
+                                value={{mediamPrice}}>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <th class="label-name">
+                            <label for="price">Large Price</label>
+                        </th>
+                        <th>
+                            <input type="text" placeholder="Large item Price" formControlName="largePrice"
+                                value={{largePrice}}>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <th class="label-name">
+                            <label for="price">Description</label>
+                        </th>
+                        <th>
+                            <input type="text" placeholder="Decsription" formControlName="description"
+                                value={{description}}>
+                        </th>
+                    </tr>
+
+                    <!-- <tr>
+                        <th class="label-name">
+                            <label for="price">Image</label>
+                        </th>
+                        <th>
+                            <input type="file" formControlName="productImage" accept="image/*">
+                        </th>
+                    </tr> -->
+
+                </table>
+                <div class="upload-error-div" *ngIf="isError">
+                    <p>
+                        {{errorCallback}}
+                    </p>
+                </div>
+                <div class="submit-button">
+                    <button type="submit" class="submit">Update item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -23,7 +23,8 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { FlexLayoutModule } from '@angular/flex-layout'
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { UpdateProductComponent } from './products/update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     DeleteOrderComponent,
     SelectProductComponent,
     AddProductComponent,
-    HomeComponent
+    HomeComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,

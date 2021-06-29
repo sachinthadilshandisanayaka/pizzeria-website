@@ -16,7 +16,7 @@
                     <div fxFlex="50%" *ngFor='let product of products; index as i' class='product-column'>
                         <table class='product-tile'>
                             <tr>
-                                <td>
+                                <td rowspan="2">
                                     <div class="product-image-div">
                                         <img [src]='product.productImage' alt="product image">
                                     </div>
@@ -29,6 +29,16 @@
                                         </h3>
                                         <h5>{{product.description}}</h5>
                                     </div>
+                                </td>
+                            </tr>
+                            <tr class="card-button-section">
+                                <td>
+                                    <button mat-raised-button class="card-button"
+                                        (click)="deleteProduct()">Delete</button>
+                                </td>
+                                <td>
+                                    <button mat-raised-button class="card-button"
+                                        (click)="updateProduct(product._id)">Update</button>
                                 </td>
                             </tr>
                         </table>

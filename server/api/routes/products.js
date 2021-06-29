@@ -123,21 +123,24 @@ router.get('/:productId', (req, res, next) => {
         })
         .catch(err => {
             console.log(err);
-            res.status(404).json({
+            res.status(401).json({
                 error: 'Not found data'
             });
         });
 });
 
-router.patch('/:pId', authCheck, (req, res, next) => {
-    const id = req.params.pId;
+router.patch('/:productId', authCheck, upload.single('productImage'), (req, res, next) => {
+    console.log('hello');
+    const id = req.params.productId;
     const updateObject = {};
     for (const ob of req.body) {
         updateObject[ob.propName] = ob.value;
     }
+    console.log(req.body);
     Product.update({ _id: id }, { $set: updateObject })
         .exec()
         .then(result => {
+            console.log(result);
             res.status(201).json({
                 message: 'product Updated',
                 request: {
@@ -155,7 +158,7 @@ router.patch('/:pId', authCheck, (req, res, next) => {
 
 });
 
-router.delete('/:pId', authCheck, (req, res, next) => {
+router.delete('/:pId', (req, res, next) => {
     const id = req.params.pId;
     Product.remove({ _id: id })
         .exec()

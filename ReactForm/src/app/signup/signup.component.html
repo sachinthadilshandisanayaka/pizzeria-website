@@ -5,20 +5,22 @@
 
   <div class="name">
     <label for="name">Name </label>
-    <input  type="text" [class.error]="nameValidate.invalid && nameValidate.touched"
-            placeholder="username" formControlName="username">
+    <input type="text" [class.error]="nameValidate.invalid && nameValidate.touched" placeholder="username"
+      formControlName="username">
     <div *ngIf="nameValidate.invalid && nameValidate.touched">
       <small style="color: red;" *ngIf="nameValidate.errors?.minlength">Name length at least 3 characters</small>
       <small style="color: red;" *ngIf="nameValidate.errors?.required">Name is required !</small>
-      <small style="color: red;" *ngIf="nameValidate.errors?.forbidenName"> {{nameValidate.errors?.forbidenName.value}} is not allow </small>
+      <small style="color: red;" *ngIf="nameValidate.errors?.forbidenName"> {{nameValidate.errors?.forbidenName.value}}
+        is not allow </small>
     </div>
   </div>
- 
+
   <br>
 
   <div class="email">
     <label for="email">Email </label>
-    <input type="email" [class.error]="getEmail.invalid && getEmail.touched" placeholder="E mail" formControlName="email">
+    <input type="email" [class.error]="getEmail.invalid && getEmail.touched" placeholder="E mail"
+      formControlName="email">
     <small style="color: red;" *ngIf="getEmail.invalid && getEmail.touched">Email is required</small>
     <small style="color: red;" *ngIf="allredyUse"> Email is already used !</small>
     <br>
@@ -27,19 +29,20 @@
       <label for="subscribe" style="color: salmon;">get offers</label>
     </div>
   </div>
-  
+
   <br>
 
   <div class="password">
     <label for="password">Password</label>
     <input type="password" placeholder="password" formControlName="password">
   </div>
- 
+
   <br>
 
   <div class="conformPassword">
     <label for="conformPassword">Conform password</label>
-    <input type="password" [class.error]="registationForm.errors?.misMatch" formControlName="conformPassword" placeholder="Conform password">
+    <input type="password" [class.error]="registationForm.errors?.misMatch" formControlName="conformPassword"
+      placeholder="Conform password">
     <small *ngIf="registationForm.errors?.misMatch" style="color: red;">passowrd is not match</small>
   </div>
 
@@ -50,4 +53,4 @@
   </div>
   <button (click)="loadData()" type="button" class="load">LOAD DATA</button>
 
-</form> 
+</form>

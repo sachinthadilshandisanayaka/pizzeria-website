@@ -34,5 +34,11 @@ export class ProductsComponent implements OnInit {
   addProduct() {
     this._router.navigate(['products/new/add-item']);
   }
-
+  updateProduct(event) {
+    console.log(event);
+    this._router.navigate(['products/update/id/', event]);
+  }
+  deleteProduct() {
+    this._router.navigate(['']);
+  }
 }

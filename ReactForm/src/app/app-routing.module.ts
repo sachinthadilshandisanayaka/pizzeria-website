@@ -9,6 +9,7 @@ import { SelectProductComponent } from './products/select-product/select-product
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './home/home.component';
+import { UpdateProductComponent } from './products/update-product/update-product.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'oders/:id', component: SelectOrderComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'products', component: ProductsComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'products/:id', component: SelectProductComponent, pathMatch: 'full' },
-  { path: 'products/new/add-item', component: AddProductComponent, pathMatch: 'full', canActivate: [AuthGuard] }
+  { path: 'products/new/add-item', component: AddProductComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'products/update/id/:id', component: UpdateProductComponent, pathMatch: 'full', canActivate: [AuthGuard] }
 ];
 
 @NgModule({
