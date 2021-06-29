@@ -1,20 +1,165 @@
-<p>oders works!</p>
+<div class="order-body">
+    <div class="header">
+        Order pizza
+    </div>
+    <div class="user-detail-form">
+        <form [formGroup]="addUserdetail" (ngSubmit)="onSubmit()" class="detail-input-form">
+            <table class="sub-table">
+                <tr>
+                    <td rowspan="3">
+                        <p>Select Size</p>
+                    </td>
+                    <td>
+                        <p>Small</p>
+                    </td>
+                    <td>
+                        <input type="radio" formControlName="item_type" value="small" name="item_type">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Medium</p>
+                    </td>
+                    <td> <input type="radio" formControlName="item_type" value="medium" name="item_type"></td>
+                </tr>
+                <tr>
+                    <td>Large</td>
+                    <td><input type="radio" formControlName="item_type" value="large" name="item_type"></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="error-message">
+                        <small *ngIf="isTypenotSelect">required</small>
+                    </td>
+                </tr>
+            </table>
+            <table class="main-table">
 
-<ul *ngFor = "let oder of oders" type="none">
-    <div class="showItem" (click)="selectItem(oder)">
-        <li>Oder ID : {{oder.oderId}}</li>
-        <!-- <li>Product ID : {{oder.ProductId._id}} </li> -->
-        <li>Product Name : {{oder.ProductId.name}} </li>
-        <!-- <li>Quantity : {{oder.quantity}} </li> -->
-        <li>Request : {{oder.request.type}} <br> {{oder.request.url}} </li>
+
+                <tr>
+                    <td>
+                        <p>Quantity</p>
+                    </td>
+                    <td>
+                        <input type="number" formControlName="qauantity" class="input-tag">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="error-message">
+                        <small *ngIf="qauantity.invalid && qauantity.touched">required</small>
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>
+                        <p>Name</p>
+                    </td>
+                    <td>
+                        <input type="text" formControlName="name" class="input-tag">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="error-message">
+                        <small *ngIf="name.invalid && name.touched">required</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Email</p>
+                    </td>
+                    <td>
+                        <input type="email" formControlName="emailAdress" class="input-tag">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="error-message">
+                        <small *ngIf="getEmailAdress.invalid && getEmailAdress.touched">required</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Telephone</p>
+                    </td>
+                    <td>
+                        <input type="tel" formControlName="telephone" class="input-tag">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="error-message">
+                        <small *ngIf="telephone.invalid && telephone.touched">required</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Address</p>
+                    </td>
+                    <td>
+                        <input type="text" formControlName="address" class="input-tag">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="error-message">
+                        <small *ngIf="address.invalid && address.touched">required</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Sub address</p>
+                    </td>
+                    <td>
+                        <input type="text" formControlName="subAddress" class="input-tag">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="error-message">
+                        <small *ngIf="subAddress.invalid && subAddress.touched">required</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Postal code</p>
+                    </td>
+                    <td>
+                        <input type="number" formControlName="postalcode" class="input-tag">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="error-message">
+                        <small *ngIf="postalcode.invalid && postalcode.touched">required</small>
+                    </td>
+                </tr>
+
+            </table>
+            <table class="sub-table">
+                <tr>
+                    <td rowspan="2">
+                        <p>Pickup or Delivery</p>
+                    </td>
+                    <td>
+                        <p>Pickup</p>
+                    </td>
+                    <td>
+                        <input type="radio" formControlName="pickupordelivery" value="pickup" name="pickupordelivery">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Delivery</p>
+                    </td>
+                    <td><input type="radio" formControlName="pickupordelivery" value="delivery" name="pickupordelivery">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="error-message">
+                        <small *ngIf="isDivveryNotSelect">required</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="order-button">
+                        <button mat-raised-button [disabled]="!addUserdetail.valid" type="submit">Buy</button>
+                    </td>
+                </tr>
+            </table>
+
+        </form>
     </div>
-</ul>
-<section [class.selectedItem]="hasClick" class="notSelectItem">
-    <div class="notSelectItem-content">
-        <span class="close" (click)="diplayItem()">&times;</span>
-        <div class="item-body">
-            <p>Product Name: {{selectItemMenu}} </p>
-            <p>Product ID: {{selectItemMenu}} </p>
-        </div>
-    </div>
-</section>
+</div>

@@ -34,5 +34,8 @@ export class HomeComponent implements OnInit {
   showClickedProduct(event) {
     this._roter.navigate(['/products', event])
   }
+  getOrder(event) {
+    this._roter.navigate(['oders/buy/', event])
+  }
 
 }

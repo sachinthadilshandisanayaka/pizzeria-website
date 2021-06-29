@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UpdateProductComponent } from './products/update-product/update-product.component';
+import { SeeAllOrdersComponent } from './oders/see-all-orders/see-all-orders.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UpdateProductComponent } from './products/update-product/update-product
     SelectProductComponent,
     AddProductComponent,
     HomeComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    SeeAllOrdersComponent
   ],
   imports: [
     BrowserModule,

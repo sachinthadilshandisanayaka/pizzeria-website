@@ -7,32 +7,55 @@ const authCheck = require('../middleware/check-auth');
 
 router.get('/', authCheck, (req, res, next) => {
     Order.find()
-        .select('product quantity _id')
-        .populate('product', 'name')
+        // .select('product quantity _id')
+        .populate('product')
         .exec()
-        .then(docs => {
-            if (!docs) {
-                res.status(404).json({
-                    message: 'No Orders'
-                });
-            }
-            return res.status(201).json({
-                Orders: docs.map(doc => {
-                    return {
-                        oderId: doc._id,
-                        ProductId: doc.product,
-                        size: doc.size,
-                        quantity: doc.quantity,
-                        request: {
-                            type: 'GET',
-                            url: 'http://localhost:3000/orders/' + doc._id
+        .then(
+            result => {
+                const dataArray = {
+                    DataCount: result.length,
+                    orders: result.map(doc => {
+                        return {
+                            id: doc._id,
+                            productId: doc.product,
+                            size: doc.size,
+                            quantity: doc.quantity,
+                            name: doc.name,
+                            pickupordelivery: doc.pickupordelivery,
+                            emailAdress: doc.emailAdress,
+                            telephone: doc.telephone,
+                            address: doc.address,
+                            subAddress: doc.subAddress,
+                            postalcode: doc.postalcode,
                         }
-                    }
-                })
-            });
-        })
+                    })
+                }
+
+                res.status(201).json(dataArray);
+            }
+            // docs => {
+            // if (!docs) {
+            //     res.status(404).json({
+            //         message: 'No Orders'
+            //     });
+            // }
+            // return res.status(201).json({
+            //     Orders: docs.map(doc => {
+            //         return {
+            //             oderId: doc._id,
+            //             ProductId: doc.product,
+            //             size: doc.size,
+            //             quantity: doc.quantity,
+            //             request: {
+            //                 type: 'GET',
+            //                 url: 'http://localhost:3000/orders/' + doc._id
+            //             }
+            //         }
+            //     })
+            // });
+        )
         .catch(err => {
-            return res.status(404).send('Unauthorized request')
+            return res.status(401).send('Unauthorized request')
         });
 
 });
@@ -41,20 +64,23 @@ router.get('/:orderId', authCheck, (req, res, next) => { // view one order
     const id = req.params.orderId;
     Order.findById(id)
         .exec()
-        .then(docs => {
+        .then(doc => {
             res.status(201).json({
-                OrderId: docs._id,
-                ProductId: docs.product,
-                size: docs.size,
-                Quantity: docs.quantity,
-                request: {
-                    type: 'GET',
-                    url: 'http://localhost:3000/orders'
-                }
+                id: doc._id,
+                productId: doc.product,
+                size: doc.size,
+                quantity: doc.quantity,
+                name: doc.name,
+                pickupordelivery: doc.pickupordelivery,
+                emailAdress: doc.emailAdress,
+                telephone: doc.telephone,
+                address: doc.address,
+                subAddress: doc.subAddress,
+                postalcode: doc.postalcode,
             });
         })
         .catch(err => {
-            res.status(404).json({
+            res.status(401).json({
                 Error: err
             });
         });
@@ -73,8 +99,15 @@ router.post('/', authCheck, (req, res, next) => { // buy product
             const order = new Order({
                 _id: new mongoose.Types.ObjectId(),
                 product: productId,
-                size: req.body.size,
-                quantity: req.body.quantity
+                size: req.body.item_type,
+                quantity: req.body.quantity,
+                name: req.body.name,
+                pickupordelivery: req.body.pickupordelivery,
+                emailAdress: req.body.emailAdress,
+                telephone: req.body.telephone,
+                address: req.body.address,
+                subAddress: req.body.subAddress,
+                postalcode: req.body.postalcode,
             });
             order
                 .save()
@@ -88,8 +121,8 @@ router.post('/', authCheck, (req, res, next) => { // buy product
                     });
                 })
                 .catch(err => {
-                    res.status(404).json({
-                        Error: err
+                    res.status(401).json({
+                        error: err
                     });
                 });
 
@@ -102,7 +135,6 @@ router.post('/', authCheck, (req, res, next) => { // buy product
         });
 
 });
-
 
 router.patch('/:OrderId', authCheck, (req, res, next) => {
     const id = req.params.OrderId;

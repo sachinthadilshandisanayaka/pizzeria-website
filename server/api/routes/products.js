@@ -32,7 +32,7 @@ const upload = multer({
 });
 
 
-router.get('/', (req, res, next) => {
+router.get('/', authCheck, (req, res, next) => {
     Product.find()
         .select('name smallPrice mediamPrice largePrice description _id productImage request')
         .exec()
@@ -40,7 +40,6 @@ router.get('/', (req, res, next) => {
             const dataArray = {
                 DataCount: result.length,
                 products: result.map(doc => {
-                    // console.log(process.env.JWT_KEY);
                     return {
                         name: doc.name,
                         smallPrice: doc.smallPrice,
@@ -158,7 +157,7 @@ router.patch('/:productId', authCheck, upload.single('productImage'), (req, res,
 
 });
 
-router.delete('/:pId', (req, res, next) => {
+router.delete('/:pId', authCheck, (req, res, next) => {
     const id = req.params.pId;
     Product.remove({ _id: id })
         .exec()

@@ -10,6 +10,7 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './home/home.component';
 import { UpdateProductComponent } from './products/update-product/update-product.component';
+import { SeeAllOrdersComponent } from './oders/see-all-orders/see-all-orders.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
   { path: 'sign-up', component: SignupComponent, pathMatch: 'full' },
   { path: 'sign-in', component: SigninComponent, pathMatch: 'full' },
-  { path: 'oders', component: OdersComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'oders', component: SeeAllOrdersComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'oders/buy/:id', component: OdersComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'oders/:id', component: SelectOrderComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'products', component: ProductsComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'products/:id', component: SelectProductComponent, pathMatch: 'full' },

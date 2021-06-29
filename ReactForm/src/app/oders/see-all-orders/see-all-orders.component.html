@@ -1,0 +1,48 @@
+<div class="add-item-main-fram">
+
+    <div class="detail-body">
+        <h2 class="product-count">Order count: {{ orderLenght }} </h2>
+        <div class="showProducts">
+            <div class="no-item-show" *ngIf="isHavenotOrder; else elseBlock">
+                <p>
+                    No items
+                </p>
+            </div>
+            <ng-template #elseBlock>
+                <div fxLayout="row wrap">
+                    <div fxFlex="50%" *ngFor='let order of orders; index as i' class='product-column'>
+                        <table class='product-tile'>
+                            <tr>
+
+                                <td>
+                                    <div>
+                                        <h2>{{order.name}}</h2>
+                                        <p>{{ order.id }}</p>
+                                        <p>{{ order.size }}</p>
+                                        <p>{{ order.quantity }}</p>
+                                        <p>{{ order.pickupordelivery }}</p>
+                                        <p>{{ order.emailAdress }}</p>
+                                        <p>{{ order.telephone }}</p>
+                                        <p>{{ order.address }}</p>
+                                        <p>{{ order.subAddress }}</p>
+                                        <p>{{ order.postalcode }}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="card-button-section">
+                                <td>
+                                    <button mat-raised-button class="card-button">Delete</button>
+                                </td>
+                                <td>
+                                    <button mat-raised-button class="card-button">Update</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+
+</div>

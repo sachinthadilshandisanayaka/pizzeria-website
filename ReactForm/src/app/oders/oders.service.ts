@@ -18,4 +18,7 @@ export class OdersService {
   selectOder(orderId) {
     return this._http.get<any>(this._oderselectUrl + orderId)
   }
+  setOrder(event) {
+    return this._http.post<any>(this._oderUrl, event);
+  }
 }
