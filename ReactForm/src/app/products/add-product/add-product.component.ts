@@ -50,7 +50,6 @@ export class AddProductComponent implements OnInit {
     return this.addItemForm.get('productImage');
   }
   onSubmit() {
-
     console.log(this.addItemForm.value)
     this._productService.addProduct(this.addItemForm.value)
       .subscribe(

@@ -65,13 +65,23 @@
     }
     .image-name {
       position: absolute;
-      top: 30%;
-      left: 27%;
+      top: 40%;
+      left: 17%;
       text-align: center;
-      font-size: xx-large;
-      font-family: Segoe Script;
       color: white;
       text-shadow: 2px 2px 5px black;
+    }
+    .image-name-top {
+      font-size: 100px;
+    }
+    .image-name-bottom {
+      margin-top: 30px;
+      font-size: 35px;
+    }
+    .image-name-top, .image-name-bottom {
+      font-family: 'Noticia Text', serif;
+      font-family: 'Rock Salt', cursive;
+      font-family: 'Yellowtail', cursive;
     }
     
 .aboutUs{
@@ -104,13 +114,13 @@
   }
   .aboutustitle{
     margin-left: 365px;
-    font-family: Trebuchet;
+    font-family: 'Nunito', sans-serif;
     font-size: xx-large;
   }
   .aboutusdescription {
     color: black;
     margin-top: 50px;
-    font-family: Constantia;
+    font-family: 'Nunito', sans-serif;
     margin-left: 60px;
     font-size: large;
     text-align: center;

@@ -63,6 +63,7 @@ router.get('/', authCheck, (req, res, next) => {
 router.get('/:orderId', authCheck, (req, res, next) => { // view one order
     const id = req.params.orderId;
     Order.findById(id)
+        .populate('product')
         .exec()
         .then(doc => {
             res.status(201).json({
@@ -81,7 +82,7 @@ router.get('/:orderId', authCheck, (req, res, next) => { // view one order
         })
         .catch(err => {
             res.status(401).json({
-                Error: err
+                error: err
             });
         });
 });
@@ -130,7 +131,7 @@ router.post('/', authCheck, (req, res, next) => { // buy product
         .catch(err => {
             res.status(404).json({
                 message: 'Id is wrong',
-                Error: err
+                error: err
             });
         });
 

@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OdersService } from '../oders.service';
@@ -12,6 +13,9 @@ export class SeeAllOrdersComponent implements OnInit {
   orderLenght = 0;
   orders = [];
   isHavenotOrder = true;
+  errorMessage = '';
+  errorMessageFromDelete = '';
+
   constructor(
     private _orderService: OdersService,
     private _router: Router,
@@ -26,12 +30,37 @@ export class SeeAllOrdersComponent implements OnInit {
           }
           this.orderLenght = result.DataCount;
           this.orders = result.orders;
-          console.log('hello');
-          console.log(this.orderLenght);
+
+          console.log(this.orders);
         },
         error => {
-          console.log(error);
+          if (error instanceof HttpErrorResponse) {
+            if (error.status == 401) {
+              this.errorMessage = error.error;
+              console.log(error.error);
+            }
+          }
         }
-      )
+      );
+  }
+  selectOrder(event: any) {
+    this._router.navigate(['/oders/', event]);
+  }
+  deleteOrder(event: any) {
+    this._orderService.deleteOrder(event)
+      .subscribe(
+        result => {
+          console.log(result.message);
+          window.location.reload();
+        },
+        error => {
+          if (error instanceof HttpErrorResponse) {
+            if (error.status == 401) {
+              this.errorMessageFromDelete = error.error;
+              console.log(error.error);
+            }
+          }
+        }
+      );
   }
 }

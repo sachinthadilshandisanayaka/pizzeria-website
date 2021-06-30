@@ -2,8 +2,6 @@
   position: relative;
   position: fixed;
   width: 100%;
-  /* height: 30px;  */
-  /* top: 0px; */
   overflow: hidden;
   padding-top: 20px;
   transition: .7s;
@@ -19,6 +17,8 @@
 }
 .header-link a {
   text-decoration: none;
+  /* font-family: 'EB Garamond', serif; */
+  font-family: 'Noticia Text', serif;
   margin-right: 20px;
   transition: padding-bottom .3s ease-in-out;
   color: white;
@@ -33,8 +33,10 @@
   left: 450px;
   padding: 5px;
   top: 2%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ 
 }
 .header-name h2{
   border-bottom: 3px solid white;
+  /* font-family: 'EB Garamond', serif; */
+  font-family: 'Noticia Text', serif;
 }

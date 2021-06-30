@@ -1,1 +1,99 @@
-<p>select-order works!</p>
+<div class="add-item-main-fram">
+
+    <div class="detail-body">
+        <div class="showProducts">
+
+
+            <table class='product-tile'>
+                <tr>
+                    <td>
+                        <p>Buyer name</p>
+                    </td>
+                    <td>
+                        <h2>{{selectOrder.name}}</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Product id</p>
+                    </td>
+                    <td>{{selectOrder.productId}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Order id</p>
+                    </td>
+                    <td>{{selectOrder.id}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Item type</p>
+                    </td>
+                    <td>
+                        <p>{{ selectOrder.size }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Quantity</p>
+                    </td>
+                    <td>
+                        <p>{{ selectOrder.quantity }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            Pickup or delivery
+                        </p>
+                    </td>
+                    <td>
+                        <p>{{ selectOrder.pickupordelivery }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Telephone</p>
+                    </td>
+                    <td>
+                        <p>{{ selectOrder.telephone }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Address</p>
+                    </td>
+                    <td>
+                        <p>{{selectOrder.address}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Sub address</p>
+                    </td>
+                    <td>
+                        <p>{{selectOrder.subAddress}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            Postal code
+                        </p>
+                    </td>
+                    <td>
+                        <p>{{ selectOrder.postalcode }}</p>
+                    </td>
+                </tr>
+                <tr class="card-button-section">
+                    <td>
+                        <button mat-raised-button class="card-button">Delete</button>
+                    </td>
+                    <td>
+                        <button mat-raised-button class="card-button">Update</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

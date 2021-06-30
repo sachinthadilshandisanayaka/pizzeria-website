@@ -5,7 +5,7 @@
         <div class="showProducts">
             <div class="no-item-show" *ngIf="isHavenotOrder; else elseBlock">
                 <p>
-                    No items
+                    No orders
                 </p>
             </div>
             <ng-template #elseBlock>
@@ -13,28 +13,85 @@
                     <div fxFlex="50%" *ngFor='let order of orders; index as i' class='product-column'>
                         <table class='product-tile'>
                             <tr>
-
                                 <td>
-                                    <div>
-                                        <h2>{{order.name}}</h2>
-                                        <p>{{ order.id }}</p>
-                                        <p>{{ order.size }}</p>
-                                        <p>{{ order.quantity }}</p>
-                                        <p>{{ order.pickupordelivery }}</p>
-                                        <p>{{ order.emailAdress }}</p>
-                                        <p>{{ order.telephone }}</p>
-                                        <p>{{ order.address }}</p>
-                                        <p>{{ order.subAddress }}</p>
-                                        <p>{{ order.postalcode }}</p>
-                                    </div>
+                                    <p>Buyer name</p>
+                                </td>
+                                <td>
+                                    <h2>{{order.name}}</h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Product name</td>
+                                <td>{{order.productId.name}}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Item type</p>
+                                </td>
+                                <td>
+                                    <p>{{ order.size }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Quantity</p>
+                                </td>
+                                <td>
+                                    <p>{{ order.quantity }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Pickup or delivery
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>{{ order.pickupordelivery }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Telephone</p>
+                                </td>
+                                <td>
+                                    <p>{{ order.telephone }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Address</p>
+                                </td>
+                                <td>
+                                    <p>{{order.address}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Sub address</p>
+                                </td>
+                                <td>
+                                    <p>{{order.subAddress}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Postal code
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>{{order.postalcode}}</p>
                                 </td>
                             </tr>
                             <tr class="card-button-section">
                                 <td>
-                                    <button mat-raised-button class="card-button">Delete</button>
+                                    <button mat-raised-button class="card-button"
+                                        (click)="deleteOrder(order.id)">Delete</button>
                                 </td>
                                 <td>
-                                    <button mat-raised-button class="card-button">Update</button>
+                                    <button mat-raised-button class="card-button"
+                                        (click)="selectOrder(order.id)">View</button>
                                 </td>
                             </tr>
                         </table>
@@ -43,6 +100,4 @@
             </ng-template>
         </div>
     </div>
-
-
 </div>

@@ -1,4 +1,4 @@
-<div class="form-div">
+<!-- <div class="form-div">
     <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()" class="add-item-form">
         <div class="upload-succes-div" *ngIf="isUpload">
             <p>
@@ -51,8 +51,7 @@
             </tr>
             <tr>
                 <th class="error-message">
-                    <small style="color: red;" *ngIf="getmediamPrice.invalid && getmediamPrice.touched">Add
-                        price</small>
+                    
                 </th>
             </tr>
             <tr>
@@ -60,16 +59,12 @@
                     <label for="price">Large Price</label>
                 </th>
                 <th rowspan="2">
-                    <input type="text" placeholder="Large item Price"
-                        [class.error]="getlargePricee.invalid && getlargePricee.touched"
-                        [class.noerror]="!getlargePricee.invalid && !getlargePricee.touched"
-                        formControlName="largePrice">
+                   
                 </th>
             </tr>
             <tr>
                 <th class="error-message">
-                    <small style="color: red;" *ngIf="getlargePricee.invalid && getlargePricee.touched">Add
-                        price</small>
+                   
                 </th>
             </tr>
 
@@ -78,16 +73,12 @@
                     <label for="price">Description</label>
                 </th>
                 <th rowspan="2">
-                    <input type="text" placeholder="Decsription"
-                        [class.error]="getdescription.invalid && getdescription.touched"
-                        [class.noerror]="!getdescription.invalid && !getdescription.touched"
-                        formControlName="description">
+                   
                 </th>
             </tr>
             <tr>
                 <th class="error-message">
-                    <small style="color: red;" *ngIf="getdescription.invalid && getdescription.touched">Add
-                        description</small>
+                   
                 </th>
             </tr>
             <tr>
@@ -95,13 +86,12 @@
                     <label for="price">Image</label>
                 </th>
                 <th rowspan="2">
-                    <input type="file" formControlName="productImage" accept="image/*">
+                    
                 </th>
             </tr>
             <tr>
                 <th class="error-message">
-                    <small style="color: red;" *ngIf="getproductImage.invalid && getproductImage.touched">Add
-                        image</small>
+                    
                 </th>
             </tr>
         </table>
@@ -114,5 +104,48 @@
             <button type="submit" [disabled]="!addItemForm.valid" class="submit">Upload</button>
         </div>
     </form>
+
+</div> -->
+<div class="form-div">
+    <div class="add-item-form">
+        <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()" class="decor">
+            <div class="form-inner">
+                <h1>Add new Item</h1>
+                <input type="text" placeholder="Item Name" [class.error]="getitemname.invalid && getitemname.touched"
+                    [class.noerror]="!getitemname.invalid && !getitemname.touched" formControlName="name">
+                <small style="color: red;" *ngIf="getitemname.invalid && getitemname.touched">Name is required
+                    !</small>
+
+                <input type="text" placeholder="Small item Price $"
+                    [class.error]="getsmallPrice.invalid && getsmallPrice.touched"
+                    [class.noerror]="!getsmallPrice.invalid && !getsmallPrice.touched" formControlName="smallPrice">
+                <small style="color: red;" *ngIf="getsmallPrice.invalid && getsmallPrice.touched">Add price</small>
+
+                <input type="text" placeholder="Medium item Price $"
+                    [class.error]="getmediamPrice.invalid && getmediamPrice.touched"
+                    [class.noerror]="!getmediamPrice.invalid && !getmediamPrice.touched" formControlName="mediamPrice">
+                <small style="color: red;" *ngIf="getmediamPrice.invalid && getmediamPrice.touched">Add
+                    price</small>
+
+                <input type="text" placeholder="Large item Price $"
+                    [class.error]="getlargePricee.invalid && getlargePricee.touched"
+                    [class.noerror]="!getlargePricee.invalid && !getlargePricee.touched" formControlName="largePrice">
+                <small style="color: red;" *ngIf="getlargePricee.invalid && getlargePricee.touched">Add
+                    price</small>
+
+                <textarea placeholder="Description..." rows="5"
+                    [class.error]="getdescription.invalid && getdescription.touched"
+                    [class.noerror]="!getdescription.invalid && !getdescription.touched"
+                    formControlName="description"></textarea>
+                <small style="color: red;" *ngIf="getdescription.invalid && getdescription.touched">Add
+                    description</small>
+
+                <input type="file" formControlName="productImage" accept="image/*">
+                <small style="color: red;" *ngIf="getproductImage.invalid && getproductImage.touched">Add
+                    image</small>
+                <button type="submit" [disabled]="!addItemForm.valid" class="submit">Submit</button>
+            </div>
+        </form>
+    </div>
 
 </div>

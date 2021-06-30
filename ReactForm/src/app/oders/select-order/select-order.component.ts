@@ -1,5 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OdersService } from '../oders.service';
 
 @Component({
@@ -9,13 +10,31 @@ import { OdersService } from '../oders.service';
 })
 export class SelectOrderComponent implements OnInit {
 
-  
-  constructor( private _odersService: OdersService,
-               private _router: Router ) { }
+  orderId: any;
+  selectOrder: any;
+  errorMessage = '';
+
+  constructor(private _odersService: OdersService,
+    private _router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-   
-
+    let idParam = this.route.snapshot.paramMap.get('id');
+    this.orderId = idParam.toString();
+    this._odersService.selectOder(this.orderId)
+      .subscribe(
+        result => {
+          console.log(result);
+          this.selectOrder = result;
+        },
+        err => {
+          if (err instanceof HttpErrorResponse) {
+            if (err.status == 401) {
+              this.errorMessage = err.error;
+              console.log(err.error);
+            }
+          }
+        }
+      );
   }
 
 }
