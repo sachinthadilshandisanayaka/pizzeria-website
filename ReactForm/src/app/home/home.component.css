@@ -86,10 +86,13 @@
     
 .aboutUs{
     position: relative;
-    margin-top: 60px;
+    margin-top: 0px;
     background-color: white;
     height: 300px;
     padding-top: 30px;
+  }
+  .aboutUs p {
+    font-family: 'Montserrat Alternates', sans-serif;
   }
   .chefimage {
     position: absolute;
@@ -113,26 +116,45 @@
     transform: scale(1.2);
   }
   .aboutustitle{
-    margin-left: 365px;
-    font-family: 'Nunito', sans-serif;
+    margin-left: 425px;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: xx-large;
   }
   .aboutusdescription {
     color: black;
     margin-top: 50px;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     margin-left: 60px;
     font-size: large;
     text-align: center;
   }
   .shop-menu {
-    /* background-color: #4DB6AC; */
-    background-color: rgba(0,0,0, .4);
-    color: black;
+    background-color: rgba(0,0,0, .5);
+    position: relative;
+    color: white;
     padding-top: 10px;
     padding-bottom: 30px;
     overflow: hidden;
   }
+
+.shop-menu-name {
+  color: white;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  
+}
+.shop-menu-name h1 {
+  font-size: 50px;
+  font-family: 'Yellowtail', cursive;
+}
+.show-product-database {
+  width: 90%;
+  height: 100%;
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
   #scrolltopButton {
     display: none;
@@ -165,7 +187,7 @@
     position: relative;
     height: 300px;
     background-color: #34495E;
-    font-family:Malgun Gothic;
+    font-family: 'Varela Round', sans-serif;
   }
   #page_bottom p{
     position: absolute;
@@ -227,25 +249,21 @@
    left: 50px;
    color: red;
   }
-  .show-product-database {
-    width: 90%;
-    height: 100%;
-    margin-top: 150px;
-    margin-left: auto;
-    margin-right: auto;
-  }
- 
+
   .product-column {
     padding: 10px;  
   }
   .product-tile {
-    background-color: #4DB6AC;
+    border: 3px solid white;
     border-radius: 10px;
     cursor: pointer;
     padding: 20px;
     transition: .3s;
   }
-  .product-tile:hover{
+  .product-tile  h2, h3, h5 {
+    font-family: 'Varela Round', sans-serif;
+  }
+  .product-tile:hover .product-image-div img{
     box-shadow: 2px 2px 5px black;
     transform: scale(1.1);
   }
@@ -272,6 +290,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  transition: .2s;
 }
 .card-button-row {
   position: relative;

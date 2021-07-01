@@ -21,7 +21,7 @@ export class ProductsService {
   showSelectedProduct(productId) {
     return this._http.get<any>(this._imgURL + productId)
   }
-  addProduct(itemsData) {
+  addProduct(itemsData: any) {
     return this._http.post<any>(this._addProductURL, itemsData)
   }
   patchProduct(itemsData, id) {

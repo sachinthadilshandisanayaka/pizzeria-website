@@ -5,38 +5,37 @@
   overflow: hidden;
   padding-top: 20px;
   transition: .7s;
-  color: white;
-  text-shadow: 2px 1px 5px black;
   z-index: 99;
+  
 }
 .header-link {
   position: absolute;
   right: 300px;
   padding: 5px;
-  top: 15%;
+  top: 15%
 }
 .header-link a {
   text-decoration: none;
   /* font-family: 'EB Garamond', serif; */
-  font-family: 'Noticia Text', serif;
+  /* font-family: 'Noticia Text', serif; */
+  font-family: 'Montserrat Alternates', sans-serif;
   margin-right: 20px;
   transition: padding-bottom .3s ease-in-out;
-  color: white;
   cursor: pointer;
 }
 .header-link a:hover {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid black;
   padding-bottom: 5px;
+  font-weight: bolder;
 }
 .header-name {
   position: absolute;
   left: 450px;
   padding: 5px;
   top: 2%;
- 
+  
 }
 .header-name h2{
-  border-bottom: 3px solid white;
-  /* font-family: 'EB Garamond', serif; */
-  font-family: 'Noticia Text', serif;
+  /* font-family: 'Noticia Text', serif; */
+  font-family: 'Montserrat Alternates', sans-serif;
 }

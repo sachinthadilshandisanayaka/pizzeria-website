@@ -2,22 +2,31 @@
 
     <div class="detail-body">
         <div class="showProducts">
-
-
             <table class='product-tile'>
                 <tr>
                     <td>
                         <p>Buyer name</p>
                     </td>
                     <td>
-                        <h2>{{selectOrder.name}}</h2>
+                        <p>{{selectOrder.name}}</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>Product name</p>
+                    </td>
+                    <td>
+                        <p>{{selectOrder.productId.name}}</p>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>Product id</p>
                     </td>
-                    <td>{{selectOrder.productId}}</td>
+                    <td>
+                        <p>{{selectOrder.productId._id}}</p>
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -86,11 +95,9 @@
                     </td>
                 </tr>
                 <tr class="card-button-section">
-                    <td>
-                        <button mat-raised-button class="card-button">Delete</button>
-                    </td>
-                    <td>
-                        <button mat-raised-button class="card-button">Update</button>
+                    <td colspan="2">
+                        <button mat-raised-button class="card-button"
+                            (click)="deleteOrder(selectOrder.id)">Delete</button>
                     </td>
                 </tr>
             </table>

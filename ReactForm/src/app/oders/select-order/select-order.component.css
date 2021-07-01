@@ -8,10 +8,11 @@
 .detail-body {
   position: relative;
   margin-top: 100px;
+  width: 100%;
+  height: 100%;
 }
 .showProducts {
-    margin-top: 50px;
-    width: 90%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     color: black;
@@ -19,42 +20,20 @@
     padding-bottom: 30px;
     overflow: hidden;
 }
-.no-item-show{
-    position: relative;
-    width: 20%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    border: #E53935 1px solid;
-    border-radius: 10px;
-  }
-  .no-item-show p {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-  .product-column {
-    padding: 10px;  
-  }
-  .product-image-div {
-    position: relative;
-    width: 170px;
-    height: 170px;
-    padding: 2px 10px 2px 0px;
-    margin-left: 30px;
-  }
-  .product-image-div img {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
+
   .product-tile {
     position: relative;
     width: 100%;
+    height: 100%;
     color: white;
     background-color: #00838F;
     border-radius: 10px;
     cursor: pointer;
     padding: 20px;
     transition: .3s;
+  }
+  table td {
+    text-align: center;
   }
   .card-button {
     transition: .2s;
@@ -64,20 +43,6 @@
     transform: scale(1.1);
   }
 
-.add-product {
-    position: absolute;
-    right: 10px;
-    padding: 20px;
-}
-.add-product button {
-    background-color: #009688;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    
-}
-.add-product button:hover{
-    box-shadow: 2px 2px 5px black;
+.card-button-section button{
+  margin-left: 85%;
 }

@@ -28,7 +28,7 @@ export class AddProductComponent implements OnInit {
       mediamPrice: ['', [Validators.required]],
       largePrice: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      productImage: ['', [Validators.required]]
+      productImage: [null, [Validators.required]]
     });
   }
   get getitemname() {
