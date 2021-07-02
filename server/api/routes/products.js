@@ -55,7 +55,6 @@ router.get('/', (req, res, next) => {
                     }
                 })
             }
-
             res.status(201).json(dataArray);
         })
         .catch(err => {

@@ -1,49 +1,83 @@
-<div class="form-div">
-    <div class="add-item-form">
-        <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()" class="decor">
-            <div class="form-inner">
-                <h1>Add new Item</h1>
-                <input type="text" placeholder="Item Name" [class.error]="getitemname.invalid && getitemname.touched"
-                    [class.noerror]="!getitemname.invalid && !getitemname.touched" formControlName="name">
-                <small *ngIf="getitemname.invalid && getitemname.touched">Name is required
-                    !</small>
+<div class="body">
 
-                <input type="text" placeholder="Small item Price $"
-                    [class.error]="getsmallPrice.invalid && getsmallPrice.touched"
-                    [class.noerror]="!getsmallPrice.invalid && !getsmallPrice.touched" formControlName="smallPrice">
-                <small *ngIf="getsmallPrice.invalid && getsmallPrice.touched">Add price</small>
+</div>
+<div class="example-container mat-elevation-z8">
+    <h2>Add Gallery</h2>
+    <div class="example-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <mat-card class="example-card">
+        <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="example-full-width">
+                <mat-label>Item Image</mat-label>
+                <ngx-mat-file-input formControlName="productImage" placeholder="Select Image"
+                    valuePlaceholder="No image file selected" [errorStateMatcher]="matcher"></ngx-mat-file-input>
+                <mat-icon matSuffix>folder</mat-icon>
+                <mat-error>
+                    <span *ngIf="getImage.invalid && getImage.touched">Please select image file</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Item Name</mat-label>
+                <input matInput placeholder="Item Name" formControlName="name" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="getitemname.invalid && getitemname.touched">Please
+                        enter Item Name</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Small Price</mat-label>
+                <input matInput placeholder="Small item Price $" [errorStateMatcher]="matcher"
+                    formControlName="smallPrice">
+                <mat-error>
+                    <span *ngIf="getsmallPrice.invalid && getsmallPrice.touched">Please
+                        enter Image Name</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Mediam Price</mat-label>
+                <input matInput placeholder="Mediam item Price $" [errorStateMatcher]="matcher"
+                    formControlName="mediamPrice">
+                <mat-error>
+                    <span *ngIf="getmediamPrice.invalid && getmediamPrice.touched">Please
+                        enter mediam price</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Large Price</mat-label>
+                <input matInput placeholder="Large item Price $" formControlName="largePrice"
+                    [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="getlargePricee.invalid && getlargePricee.touched">Please
+                        enter Large Price</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description..." rows="5" formControlName="description"
+                    [errorStateMatcher]="matcher"></textarea>
+                <mat-error>
+                    <span *ngIf="getdescription.invalid && getdescription.touched">Please enter the
+                        Discription</span>
+                </mat-error>
+            </mat-form-field>
 
-                <input type="text" placeholder="Medium item Price $"
-                    [class.error]="getmediamPrice.invalid && getmediamPrice.touched"
-                    [class.noerror]="!getmediamPrice.invalid && !getmediamPrice.touched" formControlName="mediamPrice">
-                <small *ngIf="getmediamPrice.invalid && getmediamPrice.touched">Add
-                    price</small>
-
-                <input type="text" placeholder="Large item Price $"
-                    [class.error]="getlargePricee.invalid && getlargePricee.touched"
-                    [class.noerror]="!getlargePricee.invalid && !getlargePricee.touched" formControlName="largePrice">
-                <small *ngIf="getlargePricee.invalid && getlargePricee.touched">Add
-                    price</small>
-
-                <textarea placeholder="Description..." rows="5"
-                    [class.error]="getdescription.invalid && getdescription.touched"
-                    [class.noerror]="!getdescription.invalid && !getdescription.touched"
-                    formControlName="description"></textarea>
-                <small *ngIf="getdescription.invalid && getdescription.touched">Add
-                    description</small>
-
-                <mat-form-field class="example-full-width" style="color: white;">
-                    <mat-label>Gallery Image</mat-label>
-                    <ngx-mat-file-input formControlName="productImage" placeholder="Select Image"
-                        valuePlaceholder="No image file selected"></ngx-mat-file-input>
-                    <mat-icon matSuffix>folder</mat-icon>
-                    <mat-error>
-                        <span>Please select image file</span>
-                    </mat-error>
-                </mat-form-field>
-
-                <button type="submit" [disabled]="!addItemForm.valid" class="submit">Submit</button>
+            <!-- <mat-form-field class="example-full-width">
+                <mat-label>Image Description</mat-label>
+                <input matInput placeholder="Image Description" formControlName="imageDesc"
+                    [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!getdescription.invalid && !getdescription.touched">Please
+                        enter Image Description</span>
+                </mat-error>
+            </mat-form-field> -->
+            <div class="button-row">
+                <button type="submit" mat-flat-button color="primary"
+                    [disabled]="!addItemForm.valid || isLoadingResults">
+                    <mat-label>Upload</mat-label>
+                    <mat-icon>upgrade</mat-icon>
+                </button>
             </div>
         </form>
-    </div>
+    </mat-card>
 </div>

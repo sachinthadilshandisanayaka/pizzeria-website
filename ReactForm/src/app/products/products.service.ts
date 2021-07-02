@@ -31,15 +31,15 @@ export class ProductsService {
     formData.append('description', event.description);
     formData.append('productImage', imageFile);
 
-    const header = new HttpHeaders();
-    const params = new HttpParams();
+    // const header = new HttpHeaders();
+    // const params = new HttpParams();
 
-    const options = {
-      params,
-      reportProgress: true,
-      headers: header
-    };
-    const req = new HttpRequest('POST', this._productURL, formData, options);
+    // const options = {
+    //   params,
+    //   reportProgress: true,
+    //   headers: header
+    // };
+    const req = new HttpRequest('POST', this._productURL, formData);
     return this._http.request(req);
   }
   patchProduct(itemsData, id) {

@@ -1,81 +1,54 @@
-.form-div {
-    position: absolute;
+
+.body {
+    position: fixed;
+    top: 0;
     width: 100%;
     height: 100%;
-    
-}
-.add-item-form {
-    position: relative;
-    margin-top: 200px;
-    width: 60%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-input, textarea { 
-outline: none;
-}
-h1 {
-margin-top: 0;
-font-weight: 500;
-color: white;
-text-shadow: 1px 2px 4px rgba(0,0,0,1);
-font-family: 'Varela Round', sans-serif;
-}
-form {
-position: relative;
-width: 100%;
-border-radius: 30px;
+    background-color: white;
 }
 
-.form-inner {
-background-color: rgba(0,0,0,0.3);
-box-shadow: 2px 2px 5px black;
-border-radius: 10px;
-padding: 50px;
-padding-left: 20px;
-width: 100%;
-margin-left: 140px;
-}
-.form-inner input,
-.form-inner textarea {
-display: block;
-width: 100%;
-padding: 15px;
-margin-bottom: 10px;
-border: none;
-border-radius: 20px;
-background: #d0dfe8;
-}
-.form-inner textarea {
-resize: none;
-}
-button {
-width: 100%;
-padding: 10px;
-margin-top: 20px;
-margin-left: 15px;
-border-radius: 20px;
-border: none;
-background: #0a0a0a; 
-font-size: 16px;
-font-weight: 400;
-color: #fff;
-transition: .3s;
-}
-button:hover {
-background: #fff;
-color: #0a0a0a;
-} 
-@media (min-width: 568px) {
-form {
-width: 60%;
-}}
-small {
-    position: relative;
+.example-container {
+    position:relative;
     width: 100%;
-    margin-left: 5px;
-    bottom: 10px;
-    color: white;
-    font-weight: bold;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    text-align: center;
+  }
+  
+.example-container h2 {
+    font-size: 50px;
+    font-family: 'Yellowtail', cursive;
+    padding-bottom: 10px;
 }
+ .example-loading-shade {
+     width: 8%;
+     margin-left: auto;
+     margin-right: auto;
+ } 
+  .example-card {
+    box-shadow: 1px 2px 5px rgba(0,0,0,0.4);
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 150px;
+    max-width: 500px;
+    width: 60%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .example-full-width:nth-last-child(0) {
+    margin-bottom: 10px;
+  }
+  
+  .button-row {
+    margin: 10px 0;
+  }
+  
+  .mat-flat-button {
+    margin: 5px;
+  }
+  input, textarea, button, mat-label,span {
+    font-family: 'Montserrat Alternates', sans-serif;
+  }
