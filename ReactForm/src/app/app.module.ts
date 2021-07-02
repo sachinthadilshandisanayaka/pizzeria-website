@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +26,7 @@ import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UpdateProductComponent } from './products/update-product/update-product.component';
 import { SeeAllOrdersComponent } from './oders/see-all-orders/see-all-orders.component';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 @NgModule({
   declarations: [
@@ -45,11 +46,13 @@ import { SeeAllOrdersComponent } from './oders/see-all-orders/see-all-orders.com
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MaterialFileInputModule
   ],
   providers: [AuthGuard, OdersService, SigninService, RegistrationService, ProductsService, HomeService, {
     provide: HTTP_INTERCEPTORS,

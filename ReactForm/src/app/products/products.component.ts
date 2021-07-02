@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './products.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { OdersService } from '../oders/oders.service';
 
 @Component({
   selector: 'app-products',
@@ -11,9 +13,11 @@ export class ProductsComponent implements OnInit {
 
   products = [];
   productCount = 0;
+  errorMessageFromDelete = '';
   public isNothaveProducts = true;
-  constructor(private _produtsService: ProductsService,
-    private _router: Router) { }
+
+
+  constructor(private _router: Router, private _produtsService: ProductsService) { }
 
   ngOnInit(): void {
     this._produtsService.showProducts()
@@ -34,11 +38,25 @@ export class ProductsComponent implements OnInit {
   addProduct() {
     this._router.navigate(['products/new/add-item']);
   }
-  updateProduct(event) {
+  updateProduct(event: String) {
     console.log(event);
     this._router.navigate(['products/update/id/', event]);
   }
-  deleteProduct() {
-    this._router.navigate(['']);
+
+  deleteProduct(event: any) {
+    this._produtsService.deleteProduct(event).subscribe(
+      result => {
+        console.log(result.message);
+        window.location.reload();
+      },
+      error => {
+        if (error instanceof HttpErrorResponse) {
+          if (error.status == 401) {
+            this.errorMessageFromDelete = error.error;
+            console.log(error.error);
+          }
+        }
+      }
+    );
   }
 }

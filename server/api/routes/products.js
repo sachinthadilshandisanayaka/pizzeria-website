@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' || file.mimetype === 'image/jpg') {
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
         cb(null, true);
     } else {
         cb(null, false);
@@ -32,7 +32,7 @@ const upload = multer({
 });
 
 
-router.get('/', authCheck, (req, res, next) => {
+router.get('/', (req, res, next) => {
     Product.find()
         .select('name smallPrice mediamPrice largePrice description _id productImage request')
         .exec()
@@ -66,44 +66,48 @@ router.get('/', authCheck, (req, res, next) => {
         });
 });
 
-router.post("/", authCheck, upload.single('productImage'), (req, res, next) => {
+router.post('/', authCheck, upload.single('productImage'), (req, res, next) => {
 
     console.log(req.file);
-    const product = new Product({
-        _id: new mongoose.Types.ObjectId(),
-        name: req.body.name,
-        smallPrice: req.body.smallPrice,
-        mediamPrice: req.body.mediamPrice,
-        largePrice: req.body.largePrice,
-        description: req.body.description,
-        productImage: req.file.path
-    });
-    product
-        .save()
-        .then(result => {
-            console.log(result),
-                res.status(201).json({
-                    message: 'Create product successed',
-                    products: {
-                        name: result.name,
-                        smallPrice: result.smallPrice,
-                        mediamPrice: result.mediamPrice,
-                        largePrice: result.largePrice,
-                        description: result.description,
-                        _id: result._id,
-                        request: {
-                            type: 'GET',
-                            url: 'http://localhost:3000/products/' + result._id
-                        }
-                    }
-                })
-        })
-        .catch(err => {
-            res.status(401).json({
-                error: 'error is hear'
-            });
-            console.log(err);
+    if (!req.file) {
+        return res.status(500).send({ message: 'Upload fail' });
+    } else {
+        const product = new Product({
+            _id: new mongoose.Types.ObjectId(),
+            name: req.body.name,
+            smallPrice: req.body.smallPrice,
+            mediamPrice: req.body.mediamPrice,
+            largePrice: req.body.largePrice,
+            description: req.body.description,
+            productImage: req.file.path
         });
+        product
+            .save()
+            .then(result => {
+                console.log(result),
+                    res.status(201).json({
+                        message: 'Create product successed',
+                        products: {
+                            name: result.name,
+                            smallPrice: result.smallPrice,
+                            mediamPrice: result.mediamPrice,
+                            largePrice: result.largePrice,
+                            description: result.description,
+                            _id: result._id,
+                            request: {
+                                type: 'GET',
+                                url: 'http://localhost:3000/products/' + result._id
+                            }
+                        }
+                    })
+            })
+            .catch(err => {
+                res.status(401).json({
+                    error: 'error is hear'
+                });
+                console.log(err.message);
+            });
+    }
 
 });
 router.get('/:productId', (req, res, next) => {
