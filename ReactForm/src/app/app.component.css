@@ -22,20 +22,31 @@
   margin-right: 20px;
   transition: padding-bottom .3s ease-in-out;
   cursor: pointer;
+  color: white;
 }
 .header-link a:hover {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
   padding-bottom: 5px;
   font-weight: bolder;
 }
 .header-name {
   position: absolute;
-  left: 450px;
+  left: 28%;
   padding: 5px;
-  top: 2%;
+  top: 10%;
   
 }
 .header-name h2{
   /* font-family: 'Noticia Text', serif; */
+  color: white;
   font-family: 'Montserrat Alternates', sans-serif;
 }
+/* .nav-bar {
+  position: relative;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 20px;
+  transition: .7s;
+  z-index: 99;
+} */

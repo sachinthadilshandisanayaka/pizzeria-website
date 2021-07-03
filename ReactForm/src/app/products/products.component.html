@@ -1,10 +1,29 @@
-<div class="add-item-main-fram">
+<!-- <div class="add-item-main-fram">
 
     <div class="detail-body">
         <div class="add-product">
             <button type="button" (click)="addProduct()">ADD ITEMS</button>
         </div>
         <h2 class="product-count">Product count: {{ productCount }} </h2>
+        
+    </div>
+
+
+</div> -->
+<div class="body">
+
+</div>
+<div class="example-container mat-elevation-z8">
+    <h2>Products</h2>
+    <div class="example-loading-shade">
+
+        <!-- <mat-spinner *ngIf="isLoadingResults"></mat-spinner> -->
+    </div>
+    <mat-card class="example-card">
+        <button type="button" mat-flat-button color="primary" (click)="addProduct()" class="add-procut-button">
+            <mat-label>Add Product</mat-label>
+            <mat-icon>upgrade</mat-icon>
+        </button>
         <div class="showProducts">
             <div class="no-item-show" *ngIf="isNothaveProducts; else elseBlock">
                 <p>
@@ -46,7 +65,5 @@
                 </div>
             </ng-template>
         </div>
-    </div>
-
-
+    </mat-card>
 </div>

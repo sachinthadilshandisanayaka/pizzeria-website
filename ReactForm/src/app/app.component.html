@@ -1,21 +1,17 @@
-<div class="header-menu" id="header-menu" [style.background-color]="isScroll? 'white' : ''"
+<div class="header-menu" id="header-menu" [style.background-color]="isScroll? 'black' : ''"
     [style.text-shadow]="isScroll? 'none' : '1px 2px 5px black'" [style.height]="isScroll ? '30px' : '120px' "
-    [style.box-shadow]="isScroll ? ' 1px 1px 2px rgba(0,0,0,0.4)' : 'none' "
-    [style.color]="isScroll? 'black' : 'white'">
+    [style.box-shadow]="isScroll ? ' 1px 1px 2px rgba(0,0,0,0.4)' : 'none' ">
     <div class="header-name" [style.margin-top]="isScroll ? '0px' : '25px' ">
         <h2 [style.padding-bottom]="isScroll ? '0px' : '5px' "
-            [style.border-bottom]="isScroll ? '4px solid black' : '4px solid white' ">Bruno's Pizzeria</h2>
+            [style.border-bottom]="isScroll ? '2px solid white' : '4px solid white' ">Bruno's Pizzeria</h2>
     </div>
     <div class=" header-link" [style.margin-top]="isScroll ? '2px' : '35px' ">
-        <a routerLink="/home" routerLinkActive='active' [style.color]="isScroll? 'black' : 'white'">Home</a>
-        <a routerLink="/oders" routerLinkActive='active' [style.color]="isScroll? 'black' : 'white'">Orders</a>
-        <a routerLink="/products" routerLinkActive='active' [style.color]="isScroll? 'black' : 'white'">Products</a>
-        <a routerLink='/sign-up' routerLinkActive='active' *ngIf="!_authService.loggedIn()"
-            [style.color]="isScroll? 'black' : 'white'">Sign up</a>
-        <a routerLink='/sign-in' routerLinkActive='active' *ngIf="!_authService.loggedIn()"
-            [style.color]="isScroll? 'black' : 'white'">Sign in</a>
-        <a (click)="_authService.logoutUser()" routerLinkActive='active' *ngIf="_authService.loggedIn()"
-            [style.color]="isScroll? 'black' : 'white'">Log out</a>
+        <a routerLink="/home" routerLinkActive='active'>Home</a>
+        <a routerLink="/oders" routerLinkActive='active'>Orders</a>
+        <a routerLink="/products" routerLinkActive='active'>Products</a>
+        <a routerLink='/sign-up' routerLinkActive='active' *ngIf="!_authService.loggedIn()">Sign up</a>
+        <a routerLink='/sign-in' routerLinkActive='active' *ngIf="!_authService.loggedIn()">Sign in</a>
+        <a (click)="_authService.logoutUser()" routerLinkActive='active' *ngIf="_authService.loggedIn()">Log out</a>
     </div>
 </div>
 <router-outlet (scroll)="onScroll($event)"></router-outlet>
