@@ -258,10 +258,10 @@
     cursor: pointer;
     padding: 20px;
     transition: .3s;
-    background-color: white;
+    background-color: #2E4053;
   }
   .product-tile  h2, h3, h5 {
-    color: black;
+    color: white;
     font-family: 'Varela Round', sans-serif;
   }
 
@@ -300,8 +300,9 @@
   position: relative;
 }
 .card-button {
-  background-color: #1ABC9C;
-  color: white;
+  background-color:#00FF00;
+  color: black;
+  font-weight: bold;
   margin-left: 80%;
   transition: .2s;
   

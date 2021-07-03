@@ -6,7 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatRadioModule } from '@angular/material/radio'
 
 const MaterialComponents = [
   MatGridListModule,
@@ -16,7 +17,8 @@ const MaterialComponents = [
   MatInputModule,
   MatProgressSpinnerModule,
   MatCardModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatRadioModule
 ]
 
 @NgModule({

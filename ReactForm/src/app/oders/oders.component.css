@@ -1,4 +1,4 @@
-.order-body {
+/* .order-body {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -46,4 +46,76 @@
 }
 small {
   color: red;
+} */
+
+.body {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.example-container {
+  position:relative;
+  width: 100%;
+  padding-top: 200px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.example-container h2 {
+  font-size: 50px;
+  font-family: 'Yellowtail', cursive;
+  padding-bottom: 10px;
+}
+.example-loading-shade {
+   width: 8%;
+   margin-left: auto;
+   margin-right: auto;
+} 
+.example-card {
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.4);
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 150px;
+  max-width: 500px;
+  width: 60%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-full-width:nth-last-child(0) {
+  margin-bottom: 10px;
+}
+
+.button-row {
+  margin: 10px 0;
+}
+
+.mat-flat-button {
+  margin: 5px;
+}
+input, textarea, button, mat-label,span {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+.mat-radio-group {
+  display:grid;
+
+}
+.mat-radio-button {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: bold;
+}
+.mat-for-size {
+  margin-right: 85%;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.mat-for-delivery {
+  margin-right: 73%;
+  padding-bottom: 40px;
+  text-align: center;
 }

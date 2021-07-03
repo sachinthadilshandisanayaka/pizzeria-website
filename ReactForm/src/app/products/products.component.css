@@ -98,10 +98,9 @@
   width: 100%;
   padding-top: 150px;
   padding-bottom: 100px;
-  text-align: center;
 }
 
-.example-container h2 {
+.example-container-name {
   font-size: 50px;
   font-family: 'Yellowtail', cursive;
   padding-bottom: 10px;
@@ -119,6 +118,7 @@
   /* min-width: 150px;
   max-width: 500px; */
   width: 80%;
+  
 }
 
 .example-full-width {
@@ -142,4 +142,46 @@ input, textarea, button, mat-label,span {
 .add-procut-button {
   position: absolute;
   right: 1%;
+}
+.showProducts {
+  margin-top: 50px;
+}
+.product-column {
+  position: relative;
+  width: 100%;  
+}
+
+.product-tile {
+  position: relative;
+  width: 95%;
+  margin-bottom: 20px;
+  color: white;
+  background-color: #34495E;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 20px;
+  transition: .3s;
+ 
+}
+.product-tile h2, h3, h5 {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+.product-image-div {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  padding: 2px 10px 2px 0px;
+  margin-left: 30px;
+}
+.product-image-div img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.card-button {
+  transition: .2s;
+}
+.card-button:hover{
+  box-shadow: 2px 2px 5px black;
+  transform: scale(1.1);
 }

@@ -2,14 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { OdersService } from './oders.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 @Component({
   selector: 'app-oders',
   templateUrl: './oders.component.html',
   styleUrls: ['./oders.component.css']
 })
 export class OdersComponent implements OnInit {
+
+  matcher = new MyErrorStateMatcher();
   hasClick = false;
   oders = [];
   selectItemMenu = [];
@@ -21,6 +30,7 @@ export class OdersComponent implements OnInit {
   isError = false;
   isUpload = false;
   errorCallback = ''
+
   constructor(private _oderservice: OdersService,
     private _router: Router,
     private route: ActivatedRoute,
@@ -33,16 +43,16 @@ export class OdersComponent implements OnInit {
     console.log(this.productId);
 
     this.addUserdetail = this.fb.group({
-      item_type: [''],
+      item_type: ['', Validators.required],
       productId: [this.productId],
-      qauantity: ['', Validators.required],
+      qauantity: ['', [Validators.required]],
       name: ['', Validators.required],
-      emailAdress: ['', Validators.required],
-      telephone: ['', Validators.required],
-      address: ['', Validators.required],
-      subAddress: ['', Validators.required],
-      postalcode: ['', Validators.required],
-      pickupordelivery: [''],
+      emailAdress: ['', [Validators.required, Validators.email]],
+      telephone: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      subAddress: ['', [Validators.required]],
+      postalcode: ['', [Validators.required]],
+      pickupordelivery: ['', Validators.required],
     });
   }
 
@@ -67,10 +77,13 @@ export class OdersComponent implements OnInit {
   get postalcode() {
     return this.addUserdetail.get('postalcode');
   }
-
-  selectItem(event) {
-
+  get pickupordelivery() {
+    return this.addUserdetail.get('pickupordelivery');
   }
+  get item_type() {
+    return this.addUserdetail.get('item_type');
+  }
+
   onSubmit() {
     if (this.addUserdetail.value.pickupordelivery == '') {
       this.isDivveryNotSelect = true;
