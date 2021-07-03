@@ -105,6 +105,7 @@
   font-family: 'Yellowtail', cursive;
   padding-bottom: 10px;
   text-align: center;
+  letter-spacing: 4px;
 }
 .example-loading-shade {
    width: 8%;

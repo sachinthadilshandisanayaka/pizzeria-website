@@ -1,11 +1,19 @@
-<div class="add-item-main-fram">
+<div class="body">
 
-    <div class="detail-body">
-        <h2 class="product-count">Order count: {{ orderLenght }} </h2>
+</div>
+<div class="example-container mat-elevation-z8">
+    <h2 class="example-container-name">Orders</h2>
+    <!-- <div class="example-loading-shade"> -->
+
+    <!-- <mat-spinner *ngIf="isLoadingResults"></mat-spinner> -->
+    <!-- </div> -->
+    <mat-card class="example-card">
+        <h2 class="add-procut-button">Order count: {{ orderLenght }} </h2>
+
         <div class="showProducts">
             <div class="no-item-show" *ngIf="isHavenotOrder; else elseBlock">
                 <p>
-                    No orders
+                    No items
                 </p>
             </div>
             <ng-template #elseBlock>
@@ -21,15 +29,19 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Product name</td>
-                                <td>{{order.productId.name}}</td>
+                                <td>
+                                    <p> Product name</p>
+                                </td>
+                                <td>
+                                    <h3> {{order.productId.name}}</h3>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
                                     <p>Item type</p>
                                 </td>
                                 <td>
-                                    <p>{{ order.size }}</p>
+                                    <h3>{{ order.size }}</h3>
                                 </td>
                             </tr>
                             <tr>
@@ -37,7 +49,7 @@
                                     <p>Quantity</p>
                                 </td>
                                 <td>
-                                    <p>{{ order.quantity }}</p>
+                                    <h3>{{ order.quantity }}</h3>
                                 </td>
                             </tr>
                             <tr>
@@ -47,7 +59,7 @@
                                     </p>
                                 </td>
                                 <td>
-                                    <p>{{ order.pickupordelivery }}</p>
+                                    <h3>{{ order.pickupordelivery }}</h3>
                                 </td>
                             </tr>
                             <tr>
@@ -55,7 +67,7 @@
                                     <p>Telephone</p>
                                 </td>
                                 <td>
-                                    <p>{{ order.telephone }}</p>
+                                    <h3>{{ order.telephone }}</h3>
                                 </td>
                             </tr>
                             <tr>
@@ -63,7 +75,7 @@
                                     <p>Address</p>
                                 </td>
                                 <td>
-                                    <p>{{order.address}}</p>
+                                    <h3>{{order.address}}</h3>
                                 </td>
                             </tr>
                             <tr>
@@ -71,7 +83,7 @@
                                     <p>Sub address</p>
                                 </td>
                                 <td>
-                                    <p>{{order.subAddress}}</p>
+                                    <h3>{{order.subAddress}}</h3>
                                 </td>
                             </tr>
                             <tr>
@@ -81,9 +93,10 @@
                                     </p>
                                 </td>
                                 <td>
-                                    <p>{{order.postalcode}}</p>
+                                    <h3>{{order.postalcode}}</h3>
                                 </td>
                             </tr>
+
                             <tr class="card-button-section">
                                 <td>
                                     <button mat-raised-button class="card-button"
@@ -99,5 +112,5 @@
                 </div>
             </ng-template>
         </div>
-    </div>
+    </mat-card>
 </div>

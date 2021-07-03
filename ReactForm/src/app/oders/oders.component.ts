@@ -98,7 +98,7 @@ export class OdersComponent implements OnInit {
         .subscribe(
           result => {
             console.log(result);
-            this.addUserdetail.reset();
+            window.location.reload();
             this.isUpload = true;
           },
           err => {

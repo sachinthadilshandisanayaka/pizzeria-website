@@ -264,6 +264,9 @@
     color: white;
     font-family: 'Varela Round', sans-serif;
   }
+  .product-tile  h2 {
+    font-weight: bold;
+  }
 
 .no-item-show{
   position: relative;
@@ -290,7 +293,7 @@
   width: 100%;
   height: 100%;
   transition: .2s;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .product-tile:hover .product-image-div img{
   box-shadow: 2px 2px 5px black;
