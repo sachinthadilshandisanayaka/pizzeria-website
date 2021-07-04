@@ -1,91 +1,68 @@
-<div class="main-body">
-    <div class="scroll-screen">
-        <div class="header">
-            <h2>
-                Update item
-            </h2>
-        </div>
-        <div class="image-show">
-            <img [src]='image' alt="">
-        </div>
-        <div class="form-section">
-            <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()" class="add-item-form">
-                <div class="upload-succes-div" *ngIf="isUpload">
-                    <p>
-                        Update success
-                    </p>
-                </div>
-                <table class="table-form">
-                    <tr>
-                        <th class="label-name">
-                            <label for="name">Item name</label>
-                        </th>
-                        <th>
-                            <input type="text" placeholder="Item Name" formControlName="name" value={{name}}>
-                        </th>
+<div class="body">
 
-                    </tr>
-
-                    <tr>
-                        <th class="label-name">
-                            <label for="price">Small item Price</label>
-                        </th>
-                        <th>
-                            <input type="text" placeholder="Small item Price" formControlName="smallPrice"
-                                value={{smallPrice}}>
-                        </th>
-                    </tr>
-
-                    <tr>
-                        <th class="label-name">
-                            <label for="price">Small Price</label>
-                        </th>
-                        <th>
-                            <input type="text" placeholder="Medium item Price" formControlName="mediamPrice"
-                                value={{mediamPrice}}>
-                        </th>
-                    </tr>
-
-                    <tr>
-                        <th class="label-name">
-                            <label for="price">Large Price</label>
-                        </th>
-                        <th>
-                            <input type="text" placeholder="Large item Price" formControlName="largePrice"
-                                value={{largePrice}}>
-                        </th>
-                    </tr>
-
-                    <tr>
-                        <th class="label-name">
-                            <label for="price">Description</label>
-                        </th>
-                        <th>
-                            <input type="text" placeholder="Decsription" formControlName="description"
-                                value={{description}}>
-                        </th>
-                    </tr>
-
-                    <!-- <tr>
-                        <th class="label-name">
-                            <label for="price">Image</label>
-                        </th>
-                        <th>
-                            <input type="file" formControlName="productImage" accept="image/*">
-                        </th>
-                    </tr> -->
-
-                </table>
-                <div class="upload-error-div" *ngIf="isError">
-                    <p>
-                        {{errorCallback}}
-                    </p>
-                </div>
-                <div class="submit-button">
-                    <button type="submit" class="submit">Update item</button>
-                </div>
-            </form>
-        </div>
+</div>
+<div class="example-container mat-elevation-z8">
+    <h2>Update Item</h2>
+    <div class="example-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
     </div>
+    <mat-card class="example-card">
+        <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
+            <div class="upload-succes-div" *ngIf="isUpload">
+                <p>
+                    Update success
+                </p>
+            </div>
+            <!-- <mat-form-field class="example-full-width">
+                <mat-label>Item Image</mat-label>
+                <ngx-mat-file-input formControlName="productImage" placeholder="Select Image"
+                    valuePlaceholder="No image file selected" [errorStateMatcher]="matcher"></ngx-mat-file-input>
+                <mat-icon matSuffix>folder</mat-icon>
+                <mat-error>
+                    <span *ngIf="getImage.invalid && getImage.touched">Please select image file</span>
+                </mat-error>
+            </mat-form-field> -->
+            <mat-form-field class="example-full-width">
+                <mat-label>Item Name</mat-label>
+                <input matInput placeholder="Item Name" formControlName="name" [errorStateMatcher]="matcher"
+                    value="{{getItemname}}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Small Price</mat-label>
+                <input matInput placeholder="Small item Price $" [errorStateMatcher]="matcher"
+                    formControlName="smallPrice" value="{{getItemSmallPrice}}">
 
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Mediam Price</mat-label>
+                <input matInput placeholder="Mediam item Price $" [errorStateMatcher]="matcher"
+                    formControlName="mediamPrice" value="{{getItemMediumPrice}}">
+
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Large Price</mat-label>
+                <input matInput placeholder="Large item Price $" formControlName="largePrice"
+                    [errorStateMatcher]="matcher" value="{{getItemLargePrice}}">
+
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description..." rows="5" formControlName="description"
+                    [errorStateMatcher]="matcher" value="{{gettemDescription}}"></textarea>
+
+            </mat-form-field>
+            <div class="upload-error-div" *ngIf="isError">
+                <p>
+                    {{errorCallback}}
+                </p>
+            </div>
+            <div class="button-row">
+                <button type="submit" mat-flat-button color="primary"
+                    [disabled]="!addItemForm.valid || isLoadingResults">
+                    <mat-label>Update</mat-label>
+                    <mat-icon>upgrade</mat-icon>
+                </button>
+            </div>
+        </form>
+    </mat-card>
 </div>

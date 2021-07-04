@@ -1,8 +1,16 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../products.service';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-update-product',
@@ -10,39 +18,47 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./update-product.component.css']
 })
 export class UpdateProductComponent implements OnInit {
-  name: any
-  smallPrice: any
-  mediamPrice: any
-  largePrice: any
-  id: any
-  description: any
-  image: any
-  public productId: String
-  errorMessage = ''
-  updatedDetail = []
 
+  public productId: String;
+  errorMessage = '';
+  errorCallback = '';
+  updatedDetail = [];
+  matcher = new MyErrorStateMatcher();
   addItemForm: FormGroup;
   isError = false;
   isUpload = false;
-  errorCallback = ''
+  isLoadingResults = false;
+  getItemname = '';
+  getItemSmallPrice: any;
+  getItemMediumPrice: any;
+  getItemLargePrice: any;
+  gettemDescription = '';
 
   constructor(private _rouer: Router,
-    private _productService: ProductsService, private route: ActivatedRoute, private fb: FormBuilder,) { }
+    private _productService: ProductsService,
+    private route: ActivatedRoute,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
+    this.addItemForm = this.fb.group({
+      name: [''],
+      smallPrice: [''],
+      mediamPrice: [''],
+      largePrice: [''],
+      description: [''],
+    });
     let idParam = this.route.snapshot.paramMap.get('id');
     this.productId = idParam.toString();
     this._productService.showSelectedProduct(this.productId)
       .subscribe(
         res => {
           console.log(res)
-          this.name = res.product.name
-          this.id = res.product._id
-          this.smallPrice = res.product.smallPrice
-          this.mediamPrice = res.product.mediamPrice
-          this.largePrice = res.product.largePrice
-          this.image = 'http://localhost:3000/' + res.product.productImage
-          this.description = res.product.description
+          this.getItemname = res.product.name;
+          this.getItemSmallPrice = res.product.smallPrice;
+          this.getItemMediumPrice = res.product.mediamPrice;
+          this.getItemLargePrice = res.product.largePrice;
+          this.gettemDescription = res.product.description;
         },
         err => {
           if (err instanceof HttpErrorResponse) {
@@ -53,29 +69,22 @@ export class UpdateProductComponent implements OnInit {
           }
         }
       )
-    this.addItemForm = this.fb.group({
-      name: [''],
-      smallPrice: [''],
-      mediamPrice: [''],
-      largePrice: [''],
-      description: [''],
-      // productImage: ['']
-    });
   }
   onSubmit() {
-    if (this.addItemForm.value.name != '') {
+    console.log(this.addItemForm.value);
+    if (this.addItemForm.value.name != "") {
       this.updatedDetail.push({ "propName": "name", "value": this.addItemForm.value.name });
     }
-    if (this.addItemForm.value.smallPrice != '') {
+    if (this.addItemForm.value.smallPrice != "") {
       this.updatedDetail.push({ "propName": "smallPrice", "value": this.addItemForm.value.smallPrice });
     }
-    if (this.addItemForm.value.mediamPrice != '') {
+    if (this.addItemForm.value.mediamPrice != "") {
       this.updatedDetail.push({ "propName": "mediamPrice", "value": this.addItemForm.value.mediamPrice });
     }
-    if (this.addItemForm.value.largePrice != '') {
+    if (this.addItemForm.value.largePrice != "") {
       this.updatedDetail.push({ "propName": "largePrice", "value": this.addItemForm.value.largePrice });
     }
-    if (this.addItemForm.value.description != '') {
+    if (this.addItemForm.value.description != "") {
       this.updatedDetail.push({ "propName": "description", "value": this.addItemForm.value.description });
     }
     // if (this.addItemForm.value.productImage != '') {
