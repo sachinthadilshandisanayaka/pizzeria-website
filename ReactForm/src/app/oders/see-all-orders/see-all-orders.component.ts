@@ -15,6 +15,7 @@ export class SeeAllOrdersComponent implements OnInit {
   isHavenotOrder = true;
   errorMessage = '';
   errorMessageFromDelete = '';
+  isLoading = true;
 
   constructor(
     private _orderService: OdersService,
@@ -30,17 +31,19 @@ export class SeeAllOrdersComponent implements OnInit {
           }
           this.orderLenght = result.DataCount;
           this.orders = result.orders;
-
+          this.isLoading = false;
           console.log(this.orders);
         },
         error => {
           if (error instanceof HttpErrorResponse) {
             if (error.status == 401) {
               this.errorMessage = error.error;
+              this.isLoading = false;
               console.log(error.error);
             }
           }
         }
+
       );
   }
   selectOrder(event: any) {

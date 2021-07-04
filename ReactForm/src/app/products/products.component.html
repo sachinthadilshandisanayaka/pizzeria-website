@@ -3,55 +3,57 @@
 </div>
 <div class="example-container mat-elevation-z8">
     <h2 class="example-container-name">Products</h2>
-    <!-- <div class="example-loading-shade"> -->
 
-    <!-- <mat-spinner *ngIf="isLoadingResults"></mat-spinner> -->
-    <!-- </div> -->
     <mat-card class="example-card">
         <button type="button" mat-flat-button color="primary" (click)="addProduct()" class="add-procut-button">
             <mat-label>Add Product</mat-label>
             <mat-icon>upgrade</mat-icon>
         </button>
-        <div class="showProducts">
-            <div class="no-item-show" *ngIf="isNothaveProducts; else elseBlock">
-                <p>
-                    No items
-                </p>
-            </div>
-            <ng-template #elseBlock>
-                <div fxLayout="row wrap">
-                    <div fxFlex="50%" *ngFor='let product of products; index as i' class='product-column'>
-                        <table class='product-tile'>
-                            <tr>
-                                <td rowspan="2">
-                                    <div class="product-image-div">
-                                        <img [src]='product.productImage' alt="product image">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <h2>{{product.name}}</h2>
-                                        <h3>Small ${{product.smallPrice}} / Mediam ${{product.mediamPrice}} / Large
-                                            ${{product.largePrice}}
-                                        </h3>
-                                        <h5>{{product.description}}</h5>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="card-button-section">
-                                <td>
-                                    <button mat-raised-button class="card-button"
-                                        (click)="deleteProduct(product._id)">Delete</button>
-                                </td>
-                                <td>
-                                    <button mat-raised-button class="card-button"
-                                        (click)="updateProduct(product._id)">Update</button>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </ng-template>
+        <div class="items-Loading" *ngIf="isLoading; else loadingBlock">
+            <mat-spinner></mat-spinner>
         </div>
+        <ng-template #loadingBlock>
+            <div class="showProducts">
+                <div class="no-item-show" *ngIf="isNothaveProducts; else elseBlock">
+                    <p>
+                        No items
+                    </p>
+                </div>
+                <ng-template #elseBlock>
+                    <div fxLayout="row wrap">
+                        <div fxFlex="50%" *ngFor='let product of products; index as i' class='product-column'>
+                            <table class='product-tile'>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div class="product-image-div">
+                                            <img [src]='product.productImage' alt="product image">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <h2>{{product.name}}</h2>
+                                            <h3>Small ${{product.smallPrice}} / Mediam ${{product.mediamPrice}} / Large
+                                                ${{product.largePrice}}
+                                            </h3>
+                                            <h5>{{product.description}}</h5>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="card-button-section">
+                                    <td>
+                                        <button mat-raised-button class="card-button"
+                                            (click)="deleteProduct(product._id)">Delete</button>
+                                    </td>
+                                    <td>
+                                        <button mat-raised-button class="card-button"
+                                            (click)="updateProduct(product._id)">Update</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </ng-template>
     </mat-card>
 </div>

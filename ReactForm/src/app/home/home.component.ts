@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   products = [];
   productCount = 0;
   public isNothaveProducts = true;
+  isLoading = true;
+
   constructor(private _homeServie: HomeService,
     private _roter: Router) { }
 
@@ -24,10 +26,12 @@ export class HomeComponent implements OnInit {
           if (this.productCount > 0) {
             this.isNothaveProducts = false;
           }
-          console.log(this.products)
+          this.isLoading = false;
+          console.log(this.products);
         },
         error => {
-          console.log(error)
+          this.isLoading = false;
+          console.log(error);
         }
       )
   }

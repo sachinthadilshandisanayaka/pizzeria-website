@@ -186,3 +186,8 @@ input, textarea, button, mat-label,span {
   box-shadow: 2px 2px 5px black;
   transform: scale(1.1);
 }
+.items-Loading {
+  width: 9%;
+  margin-left: auto;
+  margin-right: auto;
+}

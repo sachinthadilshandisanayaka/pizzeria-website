@@ -305,6 +305,7 @@
 .card-button {
   background-color:black;
   color: white;
+  border: 2px solid white;
   font-weight: bold;
   margin-left: 80%;
   transition: .2s;
@@ -313,4 +314,9 @@
 .card-button:hover{
   box-shadow: 1px 1px 2px black;
   transform: scale(1.1);
+}
+.items-Loading {
+  width: 9%;
+  margin-left: auto;
+  margin-right: auto;
 }

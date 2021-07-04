@@ -8,109 +8,113 @@
     <!-- <mat-spinner *ngIf="isLoadingResults"></mat-spinner> -->
     <!-- </div> -->
     <mat-card class="example-card">
-        <h2 class="add-procut-button">Order count: {{ orderLenght }} </h2>
-
-        <div class="showProducts">
-            <div class="no-item-show" *ngIf="isHavenotOrder; else elseBlock">
-                <p>
-                    No items
-                </p>
-            </div>
-            <ng-template #elseBlock>
-                <div fxLayout="row wrap">
-                    <div fxFlex="50%" *ngFor='let order of orders; index as i' class='product-column'>
-                        <table class='product-tile'>
-                            <tr>
-                                <td>
-                                    <p>Buyer name</p>
-                                </td>
-                                <td>
-                                    <h2>{{order.name}}</h2>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p> Product name</p>
-                                </td>
-                                <td>
-                                    <h3> {{order.productId.name}}</h3>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>Item type</p>
-                                </td>
-                                <td>
-                                    <h3>{{ order.size }}</h3>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>Quantity</p>
-                                </td>
-                                <td>
-                                    <h3>{{ order.quantity }}</h3>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>
-                                        Pickup or delivery
-                                    </p>
-                                </td>
-                                <td>
-                                    <h3>{{ order.pickupordelivery }}</h3>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>Telephone</p>
-                                </td>
-                                <td>
-                                    <h3>{{ order.telephone }}</h3>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>Address</p>
-                                </td>
-                                <td>
-                                    <h3>{{order.address}}</h3>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>Sub address</p>
-                                </td>
-                                <td>
-                                    <h3>{{order.subAddress}}</h3>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>
-                                        Postal code
-                                    </p>
-                                </td>
-                                <td>
-                                    <h3>{{order.postalcode}}</h3>
-                                </td>
-                            </tr>
-
-                            <tr class="card-button-section">
-                                <td>
-                                    <button mat-raised-button class="card-button"
-                                        (click)="deleteOrder(order.id)">Delete</button>
-                                </td>
-                                <td>
-                                    <button mat-raised-button class="card-button"
-                                        (click)="selectOrder(order.id)">View</button>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </ng-template>
+        <div class="items-Loading" *ngIf="isLoading; else loadingBlock">
+            <mat-spinner></mat-spinner>
         </div>
+        <ng-template #loadingBlock>
+            <h2 class="add-procut-button">Order count: {{ orderLenght }} </h2>
+            <div class="showProducts">
+                <div class="no-item-show" *ngIf="isHavenotOrder; else elseBlock">
+                    <p>
+                        No items
+                    </p>
+                </div>
+                <ng-template #elseBlock>
+                    <div fxLayout="row wrap">
+                        <div fxFlex="50%" *ngFor='let order of orders; index as i' class='product-column'>
+                            <table class='product-tile'>
+                                <tr>
+                                    <td>
+                                        <p>Buyer name</p>
+                                    </td>
+                                    <td>
+                                        <h2>{{order.name}}</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p> Product name</p>
+                                    </td>
+                                    <td>
+                                        <h3> {{order.productId.name}}</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Item type</p>
+                                    </td>
+                                    <td>
+                                        <h3>{{ order.size }}</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Quantity</p>
+                                    </td>
+                                    <td>
+                                        <h3>{{ order.quantity }}</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            Pickup or delivery
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <h3>{{ order.pickupordelivery }}</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Telephone</p>
+                                    </td>
+                                    <td>
+                                        <h3>{{ order.telephone }}</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Address</p>
+                                    </td>
+                                    <td>
+                                        <h3>{{order.address}}</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Sub address</p>
+                                    </td>
+                                    <td>
+                                        <h3>{{order.subAddress}}</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            Postal code
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <h3>{{order.postalcode}}</h3>
+                                    </td>
+                                </tr>
+
+                                <tr class="card-button-section">
+                                    <td>
+                                        <button mat-raised-button class="card-button"
+                                            (click)="deleteOrder(order.id)">Delete</button>
+                                    </td>
+                                    <td>
+                                        <button mat-raised-button class="card-button"
+                                            (click)="selectOrder(order.id)">View</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </ng-template>
     </mat-card>
 </div>

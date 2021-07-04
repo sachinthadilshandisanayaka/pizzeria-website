@@ -14,6 +14,8 @@ export class ProductsComponent implements OnInit {
   products = [];
   productCount = 0;
   errorMessageFromDelete = '';
+  isLoading = true;
+
   public isNothaveProducts = true;
 
 
@@ -29,9 +31,12 @@ export class ProductsComponent implements OnInit {
           if (this.productCount > 0) {
             this.isNothaveProducts = false;
           }
+          this.isLoading = false;
         },
         err => {
-          console.log(err)
+          this.isNothaveProducts = false;
+          this.isLoading = false;
+          console.log(err);
         }
       )
   }

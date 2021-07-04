@@ -54,41 +54,46 @@
         <div class="shop-menu-name">
             <h1>Our items</h1>
         </div>
-        <div class="show-product-database">
-            <div class="no-item-show" *ngIf="isNothaveProducts; else elseBlock">
-                <p>
-                    No items
-                </p>
-            </div>
-            <ng-template #elseBlock>
-                <div fxLayout="row wrap">
-                    <div fxFlex="50%" *ngFor='let product of products; index as i' class='product-column'>
-                        <table class='product-tile' (click)="showClickedProduct(product._id)">
-                            <tr>
-                                <td rowspan="2">
-                                    <div class="product-image-div">
-                                        <img [src]='product.productImage' alt="product image">
-                                    </div>
-                                </td>
-                                <td class="product-tile-detail-body">
-                                    <div>
-                                        <h2>{{product.name}}</h2>
-                                        <h3>Small ${{product.smallPrice}} / Mediam ${{product.mediamPrice}} / Large
-                                            ${{product.largePrice}}
-                                        </h3>
-                                        <h5>{{product.description}}</h5>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="card-button-row">
-                                <button mat-raised-button class="card-button"
-                                    (click)="getOrder(product._id)">Buy</button>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </ng-template>
+        <div class="items-Loading" *ngIf="isLoading; else loadingBlock">
+            <mat-spinner></mat-spinner>
         </div>
+        <ng-template #loadingBlock>
+            <div class="show-product-database">
+                <div class="no-item-show" *ngIf="isNothaveProducts; else elseBlock">
+                    <p>
+                        No items
+                    </p>
+                </div>
+                <ng-template #elseBlock>
+                    <div fxLayout="row wrap">
+                        <div fxFlex="50%" *ngFor='let product of products; index as i' class='product-column'>
+                            <table class='product-tile' (click)="showClickedProduct(product._id)">
+                                <tr>
+                                    <td rowspan="2">
+                                        <div class="product-image-div">
+                                            <img [src]='product.productImage' alt="product image">
+                                        </div>
+                                    </td>
+                                    <td class="product-tile-detail-body">
+                                        <div>
+                                            <h2>{{product.name}}</h2>
+                                            <h3>Small ${{product.smallPrice}} / Mediam ${{product.mediamPrice}} / Large
+                                                ${{product.largePrice}}
+                                            </h3>
+                                            <h5>{{product.description}}</h5>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="card-button-row">
+                                    <button mat-raised-button class="card-button"
+                                        (click)="getOrder(product._id)">Buy</button>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </ng-template>
     </div>
 
     <button onclick="ScrollTop()" id="scrolltopButton"><span>&#9650;</span></button>
