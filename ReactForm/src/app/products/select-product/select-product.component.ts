@@ -18,8 +18,9 @@ export class SelectProductComponent implements OnInit {
   image: any
   public productId: String;
   errorMessage = ''
+  isLoading = true;
 
-  constructor(private _rouer: Router,
+  constructor(private _router: Router,
     private _productService: ProductsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -36,6 +37,7 @@ export class SelectProductComponent implements OnInit {
           this.largePrice = res.product.largePrice
           this.image = 'http://localhost:3000/' + res.product.productImage
           this.description = res.product.description
+          this.isLoading = false;
         },
         err => {
           if (err instanceof HttpErrorResponse) {
@@ -44,9 +46,12 @@ export class SelectProductComponent implements OnInit {
               console.log(err.error);
             }
           }
+          this.isLoading = false;
         }
       )
-
+  }
+  getOrder(event) {
+    this._router.navigate(['oders/buy/', event])
   }
 
 }

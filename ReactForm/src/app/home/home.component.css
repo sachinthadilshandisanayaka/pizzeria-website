@@ -303,8 +303,8 @@
   position: relative;
 }
 .card-button {
-  background-color:#00FF00;
-  color: black;
+  background-color:black;
+  color: white;
   font-weight: bold;
   margin-left: 80%;
   transition: .2s;
