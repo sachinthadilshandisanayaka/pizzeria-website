@@ -27,6 +27,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { UpdateProductComponent } from './products/update-product/update-product.component';
 import { SeeAllOrdersComponent } from './oders/see-all-orders/see-all-orders.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { LogoutDialogComponent } from './dialog/logout-dialog/logout-dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +42,10 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     AddProductComponent,
     HomeComponent,
     UpdateProductComponent,
-    SeeAllOrdersComponent
+    SeeAllOrdersComponent,
+    LogoutDialogComponent
   ],
+  entryComponents: [LogoutDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
