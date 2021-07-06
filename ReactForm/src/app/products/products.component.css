@@ -1,89 +1,3 @@
-/* .add-item-main-fram {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin-top: 100px;
-    background-color:white ;
-}
-.detail-body {
-  position: relative;
-  margin-top: 100px;
-}
-.showProducts {
-    margin-top: 50px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    color: black;
-    padding-top: 10px;
-    padding-bottom: 30px;
-    overflow: hidden;
-}
-.no-item-show{
-    position: relative;
-    width: 20%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    border: #E53935 1px solid;
-    border-radius: 10px;
-  }
-  .no-item-show p {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-  .product-column {
-    padding: 10px;  
-  }
-  .product-image-div {
-    position: relative;
-    width: 170px;
-    height: 170px;
-    padding: 2px 10px 2px 0px;
-    margin-left: 30px;
-  }
-  .product-image-div img {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  .product-tile {
-    position: relative;
-    width: 100%;
-    color: white;
-    background-color: #00838F;
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 20px;
-    transition: .3s;
-  }
-  .card-button {
-    transition: .2s;
-  }
-  .card-button:hover{
-    box-shadow: 2px 2px 5px black;
-    transform: scale(1.1);
-  }
-.product-count {
-    color: black;
-}
-.add-product {
-    position: absolute;
-    right: 10px;
-    padding: 20px;
-}
-.add-product button {
-    background-color: #009688;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    
-}
-.add-product button:hover{
-    box-shadow: 2px 2px 5px black;
-} */
-
 
 .body {
   position: fixed;
@@ -191,3 +105,91 @@ input, textarea, button, mat-label,span {
   margin-left: auto;
   margin-right: auto;
 }
+/* ------------------ */
+#page_bottom{
+
+  position: relative;
+  margin-top: 100px;
+  height: 300px;
+  background-color: black;
+  
+}
+#page_bottom h2, h3 {
+  font-family: 'Nunito', sans-serif;
+}
+#page_bottom p{
+  position: absolute;
+  bottom: 0px;
+  left: 710px;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+}  
+#bottom_info{
+  position: absolute;
+  left: 5%;
+  width: 400px;
+}
+#bottom_info table{
+  color:  white;
+  position: relative;
+  width: 300px;
+  font-family: 'Nunito', sans-serif;
+}
+#page_bottom h2{
+ font-size: medium;
+ color: white;
+}
+#bottom_item{
+  position: absolute;
+  bottom: 30px;
+  left: 41%;
+}
+.fa {  
+  width: 15px;
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  color: white;
+  border-radius: 50%; 
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+}
+
+
+.fa-linkedin {
+  background: #007bb5;
+}
+
+.fa-youtube {
+  background: #bb0000;
+}
+
+.fa-instagram {
+  background: #8a3ab9;
+}
+
+.fa-whatsapp {
+  background: #4FCE5D;
+}
+.fa-skype {
+  background: #00aff0;
+}
+
+.fa-github {
+  background: #000000;
+}
+
+
+

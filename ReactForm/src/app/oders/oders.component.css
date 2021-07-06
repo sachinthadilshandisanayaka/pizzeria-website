@@ -119,3 +119,88 @@ input, textarea, button, mat-label,span {
   padding-bottom: 40px;
   text-align: center;
 }
+/* -------------------- */
+#page_bottom{
+
+  position: relative;
+  margin-top: 100px;
+  height: 300px;
+  background-color: black;
+  
+}
+#page_bottom h2, h3 {
+  font-family: 'Nunito', sans-serif;
+}
+#page_bottom p{
+  position: absolute;
+  bottom: 0px;
+  left: 710px;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+}  
+#bottom_info{
+  position: absolute;
+  left: 5%;
+  width: 400px;
+}
+#bottom_info table{
+  color:  white;
+  position: relative;
+  width: 300px;
+  font-family: 'Nunito', sans-serif;
+}
+#page_bottom h2{
+ font-size: medium;
+ color: white;
+}
+#bottom_item{
+  position: absolute;
+  bottom: 30px;
+  left: 41%;
+}
+.fa {  
+  width: 15px;
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  color: white;
+  border-radius: 50%; 
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+}
+
+
+.fa-linkedin {
+  background: #007bb5;
+}
+
+.fa-youtube {
+  background: #bb0000;
+}
+
+.fa-instagram {
+  background: #8a3ab9;
+}
+
+.fa-whatsapp {
+  background: #4FCE5D;
+}
+.fa-skype {
+  background: #00aff0;
+}
+
+.fa-github {
+  background: #000000;
+}
