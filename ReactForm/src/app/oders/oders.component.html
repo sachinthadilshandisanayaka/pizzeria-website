@@ -3,103 +3,106 @@
 </div>
 <div class="example-container mat-elevation-z8">
     <h2>Buy Product</h2>
-    <!-- <div class="example-loading-shade" *ngIf="isLoadingResults">
-        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-    </div> -->
-    <mat-card class="example-card">
-        <form [formGroup]="addUserdetail" (ngSubmit)="onSubmit()">
-            <mat-label class="mat-for-size">Select size</mat-label>
-            <mat-radio-group aria-label="Select an option" labelPosition="after" formControlName="item_type">
-                <mat-radio-button value="small">small </mat-radio-button>
-                <mat-radio-button value="medium">medium</mat-radio-button>
-                <mat-radio-button value="large">large </mat-radio-button>
-                <mat-error>
-                    <span *ngIf="item_type.invalid && item_type.touched">Please
-                        select dilivery type</span>
-                </mat-error>
-            </mat-radio-group>
-            <mat-form-field class="example-full-width">
-                <mat-label>Add quantity</mat-label>
-                <input matInput type="number" placeholder="Quantity" formControlName="qauantity"
-                    [errorStateMatcher]="matcher">
-                <mat-error>
-                    <span *ngIf="qauantity.invalid && qauantity.touched">Please add quantity</span>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>Your name</mat-label>
-                <input matInput placeholder="Add your full name" [errorStateMatcher]="matcher" formControlName="name">
-                <mat-error>
-                    <span *ngIf="name.invalid && name.touched">Please
-                        add your name</span>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input type="email" matInput placeholder="Add email address" [errorStateMatcher]="matcher"
-                    formControlName="emailAdress">
-                <mat-error *ngIf="getEmailAdress.hasError('email') && !getEmailAdress.hasError('required')">
-                    Please enter a valid email address
-                </mat-error>
-                <mat-error>
-                    <span *ngIf="getEmailAdress.hasError('required') && getEmailAdress.touched">Please
-                        enter email address</span>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>Telephone number</mat-label>
-                <input matInput type="tel" placeholder="Add your telephone number" formControlName="telephone"
-                    [errorStateMatcher]="matcher">
-                <mat-error>
-                    <span *ngIf="telephone.invalid && telephone.touched">Please
-                        enter telephone number</span>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>Address</mat-label>
-                <input matInput placeholder="Add your telephone number" formControlName="address"
-                    [errorStateMatcher]="matcher">
-                <mat-error>
-                    <span *ngIf="address.invalid && address.touched">Please
-                        enter home address</span>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>Sub address</mat-label>
-                <input matInput placeholder="Add your telephone number" formControlName="subAddress"
-                    [errorStateMatcher]="matcher">
-                <mat-error>
-                    <span *ngIf="subAddress.invalid && subAddress.touched">Please
-                        enter sub address</span>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>Postal code</mat-label>
-                <input matInput type="number" placeholder="Add your telephone number" formControlName="postalcode"
-                    [errorStateMatcher]="matcher">
-                <mat-error>
-                    <span *ngIf="postalcode.invalid && postalcode.touched">Please
-                        enter postal code</span>
-                </mat-error>
-            </mat-form-field>
-            <mat-label class="mat-for-delivery">Pickup or Delivery</mat-label>
-            <mat-radio-group aria-label="Select an option" labelPosition="after" formControlName="pickupordelivery">
-                <mat-radio-button value="pickup">pickup </mat-radio-button>
-                <mat-radio-button value="delivery">delivery</mat-radio-button>
-                <mat-error>
-                    <span *ngIf="pickupordelivery.invalid && pickupordelivery.touched">Please
-                        select dilivery type</span>
-                </mat-error>
-            </mat-radio-group>
+    <div class="no-item-show" *ngIf="isLoading; else elseBlock">
+        <mat-spinner></mat-spinner>
+    </div>
+    <ng-template #elseBlock>
+        <mat-card class="example-card">
+            <form [formGroup]="addUserdetail" (ngSubmit)="onSubmit()">
+                <mat-label class="mat-for-size">Select size</mat-label>
+                <mat-radio-group aria-label="Select an option" labelPosition="after" formControlName="item_type">
+                    <mat-radio-button value="small">small </mat-radio-button>
+                    <mat-radio-button value="medium">medium</mat-radio-button>
+                    <mat-radio-button value="large">large </mat-radio-button>
+                    <mat-error>
+                        <span *ngIf="item_type.invalid && item_type.touched">Please
+                            select dilivery type</span>
+                    </mat-error>
+                </mat-radio-group>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Add quantity</mat-label>
+                    <input matInput type="number" placeholder="Quantity" formControlName="qauantity"
+                        [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="qauantity.invalid && qauantity.touched">Please add quantity</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Your name</mat-label>
+                    <input matInput placeholder="Add your full name" [errorStateMatcher]="matcher"
+                        formControlName="name">
+                    <mat-error>
+                        <span *ngIf="name.invalid && name.touched">Please
+                            add your name</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput placeholder="Add email address" [errorStateMatcher]="matcher"
+                        formControlName="emailAdress">
+                    <mat-error *ngIf="getEmailAdress.hasError('email') && !getEmailAdress.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error>
+                        <span *ngIf="getEmailAdress.hasError('required') && getEmailAdress.touched">Please
+                            enter email address</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Telephone number</mat-label>
+                    <input matInput type="tel" placeholder="Add your telephone number" formControlName="telephone"
+                        [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="telephone.invalid && telephone.touched">Please
+                            enter telephone number</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="Add your telephone number" formControlName="address"
+                        [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="address.invalid && address.touched">Please
+                            enter home address</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Sub address</mat-label>
+                    <input matInput placeholder="Add your telephone number" formControlName="subAddress"
+                        [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="subAddress.invalid && subAddress.touched">Please
+                            enter sub address</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Postal code</mat-label>
+                    <input matInput type="number" placeholder="Add your telephone number" formControlName="postalcode"
+                        [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="postalcode.invalid && postalcode.touched">Please
+                            enter postal code</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-label class="mat-for-delivery">Pickup or Delivery</mat-label>
+                <mat-radio-group aria-label="Select an option" labelPosition="after" formControlName="pickupordelivery">
+                    <mat-radio-button value="pickup">pickup </mat-radio-button>
+                    <mat-radio-button value="delivery">delivery</mat-radio-button>
+                    <mat-error>
+                        <span *ngIf="pickupordelivery.invalid && pickupordelivery.touched">Please
+                            select dilivery type</span>
+                    </mat-error>
+                </mat-radio-group>
 
-            <div class="button-row">
-                <button type="submit" mat-flat-button color="primary" [disabled]="!addUserdetail.valid">
-                    <mat-label>Order now</mat-label>
-                    <mat-icon>upgrade</mat-icon>
-                </button>
-            </div>
-        </form>
-    </mat-card>
+                <div class="button-row">
+                    <button type="submit" mat-flat-button color="primary" [disabled]="!addUserdetail.valid">
+                        <mat-label>Order now</mat-label>
+                        <mat-icon>upgrade</mat-icon>
+                    </button>
+                </div>
+            </form>
+        </mat-card>
+    </ng-template>
 </div>
 <div id="page_bottom">
     <h2>contact us</h2>

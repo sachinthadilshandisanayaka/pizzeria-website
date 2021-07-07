@@ -120,6 +120,9 @@ input, textarea, button, mat-label,span {
   padding-bottom: 40px;
   text-align: center;
 }
+.no-item-show {
+  text-align: center;
+}
 /* -------------------- */
 #page_bottom{
 

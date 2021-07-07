@@ -4,6 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { ProductsService } from '../products/products.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -22,25 +23,53 @@ export class OdersComponent implements OnInit {
   hasClick = false;
   oders = [];
   selectItemMenu = [];
-
+  productName: any;
+  smallPrice: any;
+  mediamPrice: any;
+  largePrice: any;
+  description: any;
+  image: any;
   productId = '';
   addUserdetail: FormGroup;
   isTypenotSelect = false;
   isDivveryNotSelect = false;
   isError = false;
   isUpload = false;
-  errorCallback = ''
+  isLoading = true;
+  errorCallback = '';
+  errorMessage = '';
 
   constructor(private _oderservice: OdersService,
     private _router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
+    private _productServeice: ProductsService,
   ) { }
 
   ngOnInit(): void {
     let idParam = this.route.snapshot.paramMap.get('id');
     this.productId = idParam.toString();
-    console.log(this.productId);
+    this._productServeice.showSelectedProduct(this.productId)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.productName = res.product.name
+          this.smallPrice = res.product.smallPrice
+          this.mediamPrice = res.product.mediamPrice
+          this.largePrice = res.product.largePrice
+          this.image = 'http://localhost:3000/' + res.product.productImage
+          this.description = res.product.description
+          this.isLoading = false;
+        }, err => {
+          if (err instanceof HttpErrorResponse) {
+            if (err.status == 401) {
+              this.errorMessage = err.error;
+              console.log(err.error);
+            }
+          }
+          this.isLoading = false;
+        }
+      );
 
     this.addUserdetail = this.fb.group({
       item_type: ['', Validators.required],
