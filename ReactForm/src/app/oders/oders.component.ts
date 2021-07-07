@@ -38,6 +38,7 @@ export class OdersComponent implements OnInit {
   isLoading = true;
   errorCallback = '';
   errorMessage = '';
+  priceCalculate = 0;
 
   constructor(private _oderservice: OdersService,
     private _router: Router,
@@ -111,6 +112,22 @@ export class OdersComponent implements OnInit {
   }
   get item_type() {
     return this.addUserdetail.get('item_type');
+  }
+  get price_using_type() {
+    if (this.addUserdetail.value.item_type == "small") {
+      this.priceCalculate = parseFloat(this.smallPrice);
+      return this.smallPrice;
+    } else if (this.addUserdetail.value.item_type == "medium") {
+      this.priceCalculate = parseFloat(this.mediamPrice);
+      return this.mediamPrice;
+    } else if (this.addUserdetail.value.item_type == "large") {
+      this.priceCalculate = parseFloat(this.largePrice);
+      return this.largePrice;
+    }
+  }
+  get calulate_price() {
+    var calculatePrice = (this.priceCalculate * parseFloat(this.addUserdetail.value.qauantity));
+    return calculatePrice;
   }
 
   onSubmit() {

@@ -7,6 +7,29 @@
         <mat-spinner></mat-spinner>
     </div>
     <ng-template #elseBlock>
+        <mat-card class="buying-pricedisplay">
+            <table>
+                <tr>
+                    <th colspan="2" class="table-product-name">{{productName}}</th>
+                </tr>
+                <tr *ngIf="item_type.valid">
+                    <td>{{item_type.value}}</td>
+                    <th>$ {{price_using_type}}</th>
+                </tr>
+                <tr *ngIf="qauantity.valid && item_type.valid">
+                    <td>Quantity</td>
+                    <th>x {{addUserdetail.value.qauantity}}</th>
+                </tr>
+                <tr *ngIf="qauantity.valid && item_type.valid">
+                    <td>Price</td>
+                    <th>{{calulate_price}}</th>
+                </tr>
+                <tr *ngIf="qauantity.valid && item_type.valid">
+                    <th>Total Price</th>
+                    <th>$ {{calulate_price}}</th>
+                </tr>
+            </table>
+        </mat-card>
         <mat-card class="example-card">
             <form [formGroup]="addUserdetail" (ngSubmit)="onSubmit()">
                 <mat-label class="mat-for-size">Select size</mat-label>
