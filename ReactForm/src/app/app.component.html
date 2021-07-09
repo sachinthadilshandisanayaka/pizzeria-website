@@ -11,7 +11,6 @@
         <a routerLink="/products" routerLinkActive='active'>Products</a>
         <a routerLink='/sign-up' routerLinkActive='active' *ngIf="!_authService.loggedIn()">Sign up</a>
         <a routerLink='/sign-in' routerLinkActive='active' *ngIf="!_authService.loggedIn()">Sign in</a>
-        <!-- <a (click)="_authService.logoutUser()" routerLinkActive='active' *ngIf="_authService.loggedIn()">Log out</a> -->
         <a (click)="openLogoutDialog()" routerLinkActive='active' *ngIf="_authService.loggedIn()">Log out</a>
     </div>
 </div>
