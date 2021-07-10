@@ -1,7 +1,106 @@
-<h1>Test React Form</h1>
+<div class="body">
 
-<form [formGroup]="registationForm" (ngSubmit)="onSubmit()">
-  <!-- {{ registationForm.value | json }} -->
+</div>
+<div class="example-container mat-elevation-z8">
+  <h2>Create account</h2>
+  <mat-card class="error-meesage-show">
+    <h3 *ngIf="allredyUse"> Email is already used </h3>
+  </mat-card>
+
+  <mat-card class="example-card">
+    <form [formGroup]="registationForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>User name</mat-label>
+        <input matInput placeholder="Enter user name" [errorStateMatcher]="matcher" formControlName="username">
+        <mat-error *ngIf="nameValidate.invalid && nameValidate.touched">
+          <span *ngIf="nameValidate.errors?.minlength">Name lenght at least 3 characters</span>
+          <span *ngIf="nameValidate.errors?.required">Name is required</span>
+          <span *ngIf="nameValidate.errors?.forbidenName"> {{nameValidate.errors?.forbidenName.value}}
+            is not allow</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="Add email address" [errorStateMatcher]="matcher"
+          formControlName="email">
+        <mat-error *ngIf="getEmail.hasError('email') && !getEmail.hasError('required') && !allredyUse">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error>
+          <span *ngIf="getEmail.invalid && getEmail.touched && !allredyUse">Please
+            enter email address</span>
+        </mat-error>
+        <mat-error>
+          <span *ngIf="allredyUse">Email is already used</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Enter password" [errorStateMatcher]="matcher" formControlName="password">
+        <mat-error>
+          <span *ngIf="password.invalid && password.touched">Please add password</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Conform Password</mat-label>
+        <input matInput placeholder="Conform password" [errorStateMatcher]="matcher" formControlName="conformPassword">
+        <mat-error>
+          <span *ngIf="conformpassword.invalid && conformpassword.touched && !registationForm.errors?.misMatch">Enter a
+            conform password</span>
+        </mat-error>
+      </mat-form-field>
+      <span *ngIf="registationForm.errors?.misMatch" style="color: red;">conform password is not match</span>
+      <div class="button-row">
+        <button type="submit" mat-flat-button color="primary" [disabled]="!registationForm.valid">
+          <mat-label>Sign Up</mat-label>
+          <mat-icon>login</mat-icon>
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+<div id="page_bottom">
+  <h2>contact us</h2>
+  <div id="bottom_info">
+    <table>
+      <tr>
+        <td>
+          email
+        </td>
+        <td>
+          sachidisanayaka98@gmail.com
+        </td>
+      </tr>
+      <tr>
+        <td>
+          tel
+        </td>
+        <td>
+          +94 75 540 520 5
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+  <div id="bottom_item">
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-linkedin"></a>
+    <a href="#" class="fa fa-youtube"></a>
+    <a href="#" class="fa fa-instagram"></a>
+    <a href="#" class="fa fa-whatsapp"></a>
+    <a href="#" class="fa fa-skype"></a>
+    <a href="#" class="fa fa-github"></a>
+  </div>
+  <p>Copyright &#169; 2020</p>
+</div>
+
+<!-- <form [formGroup]="registationForm" (ngSubmit)="onSubmit()">
 
   <div class="name">
     <label for="name">Name </label>
@@ -53,4 +152,4 @@
   </div>
   <button (click)="loadData()" type="button" class="load">LOAD DATA</button>
 
-</form>
+</form> -->

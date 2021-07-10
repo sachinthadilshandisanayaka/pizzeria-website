@@ -1,21 +1,154 @@
-form{
-    margin-top: 100px;
-    width: 60%;
+.body {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+  }
+  
+  .example-container {
+    position:relative;
+    width: 100%;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    text-align: center;
+    box-shadow: none;
+  }
+  
+  .example-container h2 {
+    font-size: 50px;
+    font-family: 'Yellowtail', cursive;
+    padding-bottom: 10px;
+  }
+
+  .example-card {
+    box-shadow: 1px 2px 5px rgba(0,0,0,0.4);
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 1px 2px 5px black;
-    border-radius: 10px;
-    padding: 20px 10px 20px 10px;
+    min-width: 150px;
+    max-width: 500px;
+    width: 60%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .example-full-width:nth-last-child(0) {
+    margin-bottom: 10px;
+  }
+  
+  .button-row {
+    margin: 10px 0;
+  }
+  
+  .mat-flat-button {
+    margin: 5px;
+  }
+  input, textarea, button, mat-label,span {
+    font-family: 'Montserrat Alternates', sans-serif;
+  }
+  .mat-radio-group {
+    display:grid;
+  
+  }
+  .mat-radio-button {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+
+.error-meesage-show {
+    border: none;
+    color: red;
+    box-shadow: none;
 }
-/* .email input{
-   display: inline;
-} */
-.subscribed input{
-    width: 10px;
+.error-meesage-show h3 {
+    font-weight: bold;
 }
-input[type="text"],input[type="email"],input[type="password"] {
-    display: flex;
-    margin-left: 10px;
-    width: 95%;
-    padding: 10px 0px 10px 10px;
-}
+  /* -------------------- */
+  #page_bottom{
+  
+    position: relative;
+    margin-top: 100px;
+    height: 300px;
+    background-color: black;
+    
+  }
+  #page_bottom h2, h3 {
+    font-family: 'Nunito', sans-serif;
+  }
+  #page_bottom p{
+    position: absolute;
+    bottom: 0px;
+    left: 710px;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+  }  
+  #bottom_info{
+    position: absolute;
+    left: 5%;
+    width: 400px;
+  }
+  #bottom_info table{
+    color:  white;
+    position: relative;
+    width: 300px;
+    font-family: 'Nunito', sans-serif;
+  }
+  #page_bottom h2{
+   font-size: medium;
+   color: white;
+  }
+  #bottom_item{
+    position: absolute;
+    bottom: 30px;
+    left: 41%;
+  }
+  .fa {  
+    width: 15px;
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    color: white;
+    border-radius: 50%; 
+  }
+  
+  .fa:hover {
+    opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+  }
+  
+  
+  .fa-linkedin {
+    background: #007bb5;
+  }
+  
+  .fa-youtube {
+    background: #bb0000;
+  }
+  
+  .fa-instagram {
+    background: #8a3ab9;
+  }
+  
+  .fa-whatsapp {
+    background: #4FCE5D;
+  }
+  .fa-skype {
+    background: #00aff0;
+  }
+  
+  .fa-github {
+    background: #000000;
+  }
+  

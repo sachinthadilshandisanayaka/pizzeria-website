@@ -1,20 +1,79 @@
-<h1>Sign IN</h1>
+<div class="body">
 
-<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
-    <div >
-        <label for="email">Use name</label>
-        <input type="email" placeholder="E mail" formControlName="email">
-        <small style="color: red;" *ngIf="emailErro">Email is invalid !</small>
+</div>
+<div class="example-container mat-elevation-z8">
+    <h2>Sign in</h2>
+    <mat-card class="error-meesage-show">
+        <h3 *ngIf="emailErro"> {{EmailError}} </h3>
+    </mat-card>
+    <mat-card class="error-meesage-show">
+        <h3 *ngIf="passwordErro"> {{PasswordError}} </h3>
+    </mat-card>
+    <mat-card class="example-card">
+        <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Add email address" [errorStateMatcher]="matcher"
+                    formControlName="email">
+                <mat-error
+                    *ngIf="getEmailAdress.hasError('email') && !getEmailAdress.hasError('required') && !emailErro">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error>
+                    <span *ngIf="getEmailAdress.hasError('required') && getEmailAdress.touched && !emailErro">Please
+                        enter email address</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter password" [errorStateMatcher]="matcher" formControlName="password">
+                <mat-error>
+                    <span *ngIf="password.invalid && password.touched && !passwordErro">Please add password</span>
+                </mat-error>
+            </mat-form-field>
+            <div class="button-row">
+                <button type="submit" mat-flat-button color="primary" [disabled]="!signinForm.valid">
+                    <mat-label>Sign in</mat-label>
+                    <mat-icon>login</mat-icon>
+                </button>
+            </div>
+        </form>
+    </mat-card>
+</div>
+<div id="page_bottom">
+    <h2>contact us</h2>
+    <div id="bottom_info">
+        <table>
+            <tr>
+                <td>
+                    email
+                </td>
+                <td>
+                    sachidisanayaka98@gmail.com
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    tel
+                </td>
+                <td>
+                    +94 75 540 520 5
+                </td>
+            </tr>
+        </table>
+
     </div>
-<br>
-    <div>
-        <label for="password">password</label>
-        <input type="password" placeholder="password" formControlName="password">
-        <small style="color: red;" *ngIf="passwordErro">Email is invalid !</small>
+
+    <div id="bottom_item">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-youtube"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-whatsapp"></a>
+        <a href="#" class="fa fa-skype"></a>
+        <a href="#" class="fa fa-github"></a>
     </div>
-<br>
-    <div>
-        <p> {{allError}} </p>
-    </div>
-    <button type="submit" [disabled]="!signinForm.valid">Log in</button>
-</form>
+    <p>Copyright &#169; 2020</p>
+</div>
