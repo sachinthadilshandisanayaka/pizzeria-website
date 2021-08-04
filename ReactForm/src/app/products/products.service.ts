@@ -43,7 +43,7 @@ export class ProductsService {
     return this._http.request(req);
   }
   patchProduct(itemsData, id) {
-    return this._http.patch<any>(this._imgURL + id, itemsData)
+    return this._http.patch<any>(this._imgURL + id, itemsData);
   }
   deleteProduct(id: String) {
     return this._http.delete<any>(this._imgURL + id);

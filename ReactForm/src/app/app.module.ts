@@ -61,7 +61,7 @@ import { LogoutDialogComponent } from './dialog/logout-dialog/logout-dialog.comp
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
-  }],
+  }], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
